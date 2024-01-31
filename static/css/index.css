@@ -24,7 +24,7 @@ ol > li::marker {
 .glass-overlay {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px); /* Adjust the blur value to your preference */
-  background: linear-gradient(to right, #DFE7FDA0, #D3F8E2A0); /* Adjust the background color and opacity */
+  background: linear-gradient(to right, #f5eaf99e, #ccc1f899); /* Adjust the background color and opacity */
 }
 
 /* Media query for mobile devices */
@@ -110,7 +110,7 @@ ol > li::marker {
 }
 
 .headline {
-  background: linear-gradient(to right, #DFE7FD, #D3F8E2);
+  background: linear-gradient(to right, #f5eaf9, #ccc1f8);
 }
 
 .headline-container {
@@ -124,6 +124,7 @@ ol > li::marker {
 }
 
 .publication-title {
+  font-size: 80%;
 }
 
 .subtitle {

@@ -4,13 +4,9 @@
   <meta charset="utf-8">
   <meta name="description"
         content="MEDITRON-70B: Scaling Medical Pretraining for Large Language Models">
-  <meta name="keywords" content="4M, Foundation Model, Frontier Model, MultiMAE, Masked Autoencoders,
-                                 Multimodal Learning, Multitask Learning,
-                                 Multi-modal Learning, Multi-task Learning,
-                                 Generative Modeling, Transfer Learning, Vision Transformers,
-                                 Computer Vision, Vision">
+  <meta name="keywords" content="Meditron, Foundation Model, Generative Modeling, Generative AI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>4M: Massively Multimodal Masked Modeling</title>
+  <title>MEDITRON-70B</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBVBTHC8QT"></script>
@@ -73,84 +69,19 @@
         </a>
 
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#method">
-            Method
-          </a>
-
-          <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="#training">
-              Training
-            </a>
-            <a class="navbar-item" href="#chained-generation">
-              Generation
-            </a>
-            <a class="navbar-item" href="#modalities">
-              Modalities
-            </a>
-            <a class="navbar-item" href="#tokenization">
-              Tokenization
-            </a>
-
-          </div>
-        </div>
-
-        <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="#generation">
-            Generation
+            Methodology
           </a>
 
           <div class="navbar-dropdown is-boxed">
             <a class="navbar-item" href="#any-to-any">
-              Any-to-any generation
+              Data Mixture
             </a>
             <a class="navbar-item" href="#rgb-to-all">
-              RGB-to-all generation
+              Pre-training
             </a>
-            <a class="navbar-item" href="#fine-grained-generation-editing">
-              Fine-grained generation & editing
-            </a>
-            <!-- <a class="navbar-item" href="#semantic-editing">
-              Semantic editing
-            </a> -->
-            <a class="navbar-item" href="#multimodal-guidance">
-              Multimodal guidance
-            </a>
-            <a class="navbar-item" href="#steerable-generation">
-              Steerable data generation
-            </a>
-            <a class="navbar-item" href="#text-understanding">
-              Improved text understanding
-            </a>
-
-          </div>
-        </div>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#retrieval">
-            Retrieval
-          </a>
-
-          <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="#any2rgb-retrieval">
-              Any-to-RGB retrieval
-            </a>
-            <a class="navbar-item" href="#rgb2any-retrieval">
-              RGB-to-any retrieval
-            </a>
-          </div>
-        </div>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="#transfers-ablations">
-            Transfers & ablations
-          </a>
-
-          <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="#transfers">
-              Transfers
-            </a>
-            <a class="navbar-item" href="#ablations">
-              Ablations
+            <a class="navbar-item" href="#rgb-to-all">
+              Evaluation
             </a>
 
           </div>
@@ -171,14 +102,13 @@
 
         <div class="row has-text-left">
           <div class="title-container">
-            <img src="static/images/4M_logo_bw.svg" class="logo" width="100" alt="4M logo"/>
-            <h1 id="scrollingHead" class="title is-1 publication-title">MEDITRON-70B:<br>Scaling Medical Pretraining<br>for Large Language Models</h1>
+            <img src="static/images/meditron_LOGO_monogram_transparent.png" class="logo" width="100" alt="4M logo"/>
+            <h1 id="scrollingHead" class="title is-1">MEDITRON-70B:<br><span class="publication-title">Scaling Medical Pretraining<br>for Large Language Models</span></h1>
           </div>
         </div>
 
         <div class="logo-container">
-          <img src="static/images/EPFL_logo.png" class="logo" width="140" alt="EPFL logo"/>
-          <img src="static/images/Apple_logo.png" class="logo apple-logo" width="60" alt="Apple logo"/>
+          <img src="static/images/epfl-logo.png" class="logo" width="140" alt="EPFL logo"/>
         </div>
 
       </div>
@@ -186,8 +116,7 @@
       <div class="columns is-centered">
         <div class="column has-text-left banner">
           <blockquote>
-            A framework for training any-to-any multimodal foundation models.<br/>
-            Scalable. Open-sourced. Across tens of modalities and tasks.
+            A set of new open-access LLMs adapted to the medical domain,<br>achieving new SoTA open-source performance on common medical benchmarks.
           </blockquote>
         </div>
       </div>
@@ -196,7 +125,7 @@
         <div class="publication-links">
           <!-- PDF Link. -->
           <span class="link-block-header">
-            <a href="https://arxiv.org/abs/2312.06647"
+            <a href="https://arxiv.org/abs/2311.16079"
               target="_blank" class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
                   <i class="ai ai-arxiv"></i>
@@ -206,11 +135,21 @@
           </span>
           <!-- Code Link. -->
           <span class="link-block-header">
-            <a target="_blank" class="external-link button is-normal is-rounded is-dark" disabled>
+            <a href="https://github.com/epfLLM/meditron"
+              target="_blank" class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
                   <i class="fab fa-github"></i>
               </span>
-              <span>Code & weights (coming soon)</span>
+              <span>Code</span>
+            </a>
+          </span>
+          <span class="link-block-header">
+            <a href="https://huggingface.co/epfl-llm"
+              target="_blank" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
+                <i class="fa fa-database"></i>
+              </span>
+              <span>Dataset</span>
             </a>
           </span>
         </div>
@@ -225,13 +164,10 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <img src="https://storage.googleapis.com/four_m_site/images/4M_pull_figure.svg" alt="4M pull figure."/>
+      <img src="static/images/medical_performance.png" alt="4M pull figure."/>
       <h2 class="subtitle has-text-centered">
-        <span class="dmethod">4M</span> enables training versatile multimodal and multitask models, capable of performing a diverse
-        set of vision tasks out of the box, as well as being able to perform multimodal conditional generation.
-        This, coupled with the models' ability to perform in-painting, enables powerful image editing capabilities.
-        These generalist models transfer well to a broad range of downstream tasks or to novel modalities,
-        and can be easily fine-tuned into more specialized variants of itself.
+        <span class="dmethod">MEDITRON-70B</span>’s performance on MedQA MEDITRON-70B achieves an accuracy of
+        70.2 % on USMLE-style questions in the MedQA (4 options) dataset.
       </h2>
     </div>
   </div>
@@ -247,21 +183,18 @@
         <div class="content has-text-justified">
 
           <p>
-            Current machine learning models for vision are often highly specialized and limited to a single modality
-            and task. In contrast, recent large language models exhibit a wide range of capabilities, hinting at a
-            possibility for similarly versatile models in computer vision.
+            Large language models (LLMs) can potentially democratize access to medical knowledge. While many efforts have been made to harness and improve LLMs' medical knowledge and reasoning capacities, the resulting models are either closed-source (e.g., PaLM, GPT-4) or limited in scale (<= 13B parameters), which restricts their abilities. 
           </p>
           <p>
-            We take a step in this direction and propose a multimodal training scheme called
-            <span class="dmethod">4M</span>, short for Massively Multimodal Masked Modeling.
-            It consists of training a <b>single unified Transformer encoder-decoder</b>
-            using a <b>masked modeling objective</b> across a <b>wide range of input/output modalities</b> &#8212; including
-            text, images, geometric, and semantic modalities, as well as neural network feature maps.
-            <span class="dmethod">4M</span> achieves <b>scalability</b> by unifying the representation space of all
-            modalities through mapping them into discrete tokens and performing multimodal masked modeling on a small
-            randomized subset of tokens.
+            In this work, we improve access to large-scale medical LLMs by releasing <span class="dmethod">MEDITRON</span>: a suite of open-source LLMs with 7B and 70B parameters adapted to the medical domain. <span class="dmethod">MEDITRON</span> builds on Llama-2 (through our adaptation of Nvidia's Megatron-LM distributed trainer), and extends pretraining on a comprehensively curated medical corpus, including selected PubMed articles, abstracts, and internationally-recognized medical guidelines. 
           </p>
           <p>
+            Evaluations using four major medical benchmarks show significant performance gains over several state-of-the-art baselines before and after task-specific finetuning. Overall, <span class="dmethod">MEDITRON</span> achieves a 6% absolute performance gain over the best public baseline in its parameter class and 3% over the strongest baseline we finetuned from Llama-2. Compared to closed-source LLMs, <span class="dmethod">MEDITRON-70B</span> outperforms GPT-3.5 and Med-PaLM and is within 5% of GPT-4 and 10% of Med-PaLM-2. 
+          </p>
+          <p>
+            We release our code for curating the medical pretraining corpus and the <span class="dmethod">MEDITRON-70B</span> model weights to drive open-source development of more capable medical LLMs.
+          </p>
+          <!-- <p>
             <span class="dmethod">4M</span> leads to models that exhibit several key capabilities:
             <ol type="I">
               <li>
@@ -275,27 +208,18 @@
                 enabling a wide variety of expressive multimodal editing capabilities with remarkable flexibility.
               </li>
             </ol>
-          </p>
-          <p>
-            Through experimental analyses, we demonstrate the potential of <span class="dmethod">4M</span> for
-            training versatile and scalable foundation models for vision tasks, setting the stage for further
-            exploration in multimodal learning for vision and other domains. Please see our
-            <a target="_blank">
-              <span class="dlink">Github repository (coming soon)</span>
-            </a>
-            for code and pre-trained models.
-          </p>
+          </p> -->
 
         </div>
 
         <figure class="image mod-figure">
-          <img src="https://storage.googleapis.com/four_m_site/images/4M_modalities.svg" alt="Modalities overview">
+          <img src="static/images/meditron-process.png" alt="Modalities overview">
         </figure>
-        <h2 class="subtitle has-text-centered">
+        <!-- <h2 class="subtitle has-text-centered">
             <span class="dmethod">4M</span> enables training a single model on tens
             of diverse modalities. The resulting model can generate <em>any</em> of
             the modalities from <em>any subset</em> of them.
-        </h2>
+        </h2> -->
 
       </div>
     </div>
@@ -329,29 +253,17 @@
           <!-- NeurIPS -->
           <div class="tile is-parent is-12">
             <article class="tile is-child box">
-              <p class="title is-4">4M: Massively Multimodal Masked Modeling</p>
+              <p class="title is-4">MEDITRON-70B: Scaling Medical Pretraining for Large Language Models</p>
 
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
-                  <a href="https://dmizrahi.com/" target="_blank">David Mizrahi</a> <sup>1,2 *</sup>,
+                  <a href="" target="_blank">Zeming Chen</a> <sup>1</sup>,
                 </span>
                 <span class="author-block">
-                  <a href="https://roman-bachmann.github.io/" target="_blank">Roman Bachmann</a> <sup>1 *</sup>,
+                  <a href="" target="_blank">Alejandro Hernández Cano</a> <sup>1 *</sup>,
                 </span>
                 <span class="author-block">
-                  <a href="https://ofkar.github.io/" target="_blank">Oğuzhan Fatih Kar</a> <sup>1</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://aserety.github.io/" target="_blank">Teresa Yeo</a> <sup>1</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://fly6464.github.io/" target="_blank">Mingfei Gao</a> <sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://www.afshindehghan.com/" target="_blank">Afshin Dehghan</a> <sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://vilab.epfl.ch/zamir/" target="_blank">Amir Zamir</a> <sup>1</sup>
+                  <a href="" target="_blank">Angelika Romanou</a> <sup>1 *</sup>,
                 </span>
               </div>
 
@@ -457,76 +369,7 @@
           <!--/ NeurIPS -->
         </div>
 
-        <div class="tile is-ancestor is-centered">
-          <!-- CVPR -->
-          <div class="tile is-parent is-12">
-            <article class="tile is-child box">
-              <p class="title is-4">Scaling Vision Models to Tens of Tasks and Modalities</p>
-
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">
-                  <a href="https://roman-bachmann.github.io/" target="_blank">Roman Bachmann</a> <sup>1 *</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://ofkar.github.io/" target="_blank">Oğuzhan Fatih Kar</a> <sup>1 *</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://dmizrahi.com/" target="_blank">David Mizrahi</a> <sup>1,2 *</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://garjania.github.io/" target="_blank">Ali Garjani</a> <sup>1</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://fly6464.github.io/" target="_blank">Mingfei Gao</a> <sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://www.dgriffiths.uk/" target="_blank">David Griffiths</a> <sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://scholar.google.com/citations?user=vm3imKsAAAAJ&hl=en" target="_blank">Jiaming Hu</a> <sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://www.afshindehghan.com/" target="_blank">Afshin Dehghan</a> <sup>2</sup>,
-                </span>
-                <span class="author-block">
-                  <a href="https://vilab.epfl.ch/zamir/" target="_blank">Amir Zamir</a> <sup>1</sup>
-                </span>
-              </div>
-
-              <div class="is-size-5 publication-authors">
-                <span class="author-block"><sup>1</sup>EPFL</span>
-                &nbsp;
-                <span class="author-block"><sup>2</sup>Apple</span>
-              </div>
-
-              <div class="is-size-6 publication-contribution">
-                <span class="author-block">* Equal contribution</span>
-              </div>
-
-              <div class="is-size-5 has-text-weight-semibold mt-3 publication-title">
-                <span class="author-block">arXiv 2024</span>
-              </div>
-
-              <br>
-
-              <p>
-                We scale <span class="dmethod">4M</span> to 21 diverse types
-                of modalities, including human poses and shape, SAM instances, and metadata, and
-                propose modality-specific tokenization approaches. We successfully scale up the
-                training to 3 billion parameter models, demonstrate co-training on vision and language,
-                and showcase strong out-of-the-box vision capabilities.
-                On this page, we already showcase some results from a <span class="dmethod">4M-21 XL</span>
-                model trained on all 21 modalities. Stay tuned for more, coming soon!
-              </p>
-
-            </article>
-          </div>
-          <!--/ CVPR -->
-
-        </div>
         <!--/ Publication tiles. -->
-
-
 
       </div>
     </div>
@@ -540,7 +383,7 @@
 
           <div class="tile is-parent">
             <a href="#method" class="tile is-child box asdf">
-              <p class="title is-4"><span class="dmethod">4M</span> training & generation</p>
+              <p class="title is-4"><span class="dmethod">Data Mixture</p>
               <p>
                 Discover the <span class="dmethod">4M</span> training
                 strategy and multimodal generation scheme.
@@ -549,18 +392,8 @@
           </div>
 
           <div class="tile is-parent">
-            <a href="#generation" class="tile is-child box">
-              <p class="title is-4">Steerable generation</p>
-              <p>
-                Get to know <span class="dmethod">4M</span>'s multimodal generation
-                and multitasking capabilities through interactive visualizations.
-              </p>
-            </a>
-          </div>
-
-          <div class="tile is-parent">
             <a href="#retrieval" class="tile is-child box">
-              <p class="title is-4">Multimodal retrieval</p>
+              <p class="title is-4">Pre-Training</p>
               <p>
                 See how <span class="dmethod">4M</span> can distill contrastive objectives
                 and emerge multimodal retrieval capabilities.
@@ -570,7 +403,7 @@
 
           <div class="tile is-parent">
             <a href="#transfers-ablations" class="tile is-child box">
-              <p class="title is-4">Transfers & ablations</p>
+              <p class="title is-4">Evaluation</p>
               <p>
                 Explore key design choices and how <span class="dmethod">4M</span>
                 transfers to novel downstream tasks.
@@ -707,43 +540,6 @@
         </div>
 
 
-        <a class="anchor" id="modalities"></a>
-        <h2 class="title is-4">Modalities</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            Using the <span class="dmethod">4M</span> training objective, we can train a single model on tens
-            of highly diverse modalities including several semantic and geometric modalities, feature maps
-            from recent state of the art models like DINOv2 and ImageBind, pseudo labels of specialist models
-            like SAM and 4DHumans, and modalities that allow for novel ways to interact with the model and
-            steer the generation, for example image metadata and color palettes.
-          </p>
-        </div>
-
-        <a class="anchor" id="tokenization"></a>
-        <h2 class="title is-4">Tokenization</h2>
-
-        <div class="content has-text-justified">
-          <p>
-          Tokenization consists of converting modalities and tasks into sequences or sets of discrete
-          tokens, thereby unifying the representation space of all modalities. This is critical for
-          training large multimodal models. We use different tokenization approaches to tokenize
-          modalities with different characteristics, see the figure below for an overview.
-          </p>
-        </div>
-
-        <figure class="image tok-figure">
-          <img src="https://storage.googleapis.com/four_m_site/images/4M_tokenization.svg" alt="Tokenization overview">
-        </figure>
-        <h2 class="subtitle has-text-centered">
-          As illustrated above, we employ suitable tokenization schemes for different modalities based
-          on their format and performance. For image-like modalities and feature maps, we leverage
-          spatial VQ-VAEs, with optional diffusion decoders for detail rich modalities like RGB. We
-          tokenize non-spatial modalities, e.g. parameterized poses, using VQ-VAEs with MLP encoders
-          and decoders. All sequence modalities are encoded as text using WordPiece tokenizer. The
-          shown examples are real tokenizer reconstructions.
-        </h2>
-
 <!--        <div class="content has-text-justified">-->
 <!--          <p>-->
 <!--            TODO: Description about tokenizers reconstructions @OZ-->
@@ -828,1027 +624,8 @@
 </section>
 
 
-<!-- Generative visualizations -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Animations. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <a class="anchor" id="generation"></a>
-        <h2 class="title is-3">Steerable multimodal generation</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            One of the consequences of <span class="dmethod">4M</span>'s multimodal masked
-            modeling objective is that it enables steerable multimodal generation of
-            any modality given any subset of (partial) other modalities. This not only enables
-            an exciting level of control over the generation process, but also allows for
-            predicting multiple tasks in a consistent manner through chained generation (as
-            demonstrated <a href="#chained-generation">above</a>).
-          </p>
-          <p>
-            We invite you to explore the capabilities of <span class="dmethod">4M</span>
-            models by interacting with the interactive visualizations below. They are best
-            viewed on a desktop computer.
-        </div>
-
-        <br/>
-
-        <!-- Any-to-any. -->
-        <a class="anchor" id="any-to-any"></a>
-        <h3 class="title is-4">Any-to-any generation</h3>
-        <div class="content has-text-justified">
-          <p>
-            <span class="dmethod">4M</span> allows for generating any modality from any other
-            subset of modalities in a self-consistent manner. We can achieve this level of
-            consistency by looping back predicted modalities into the input when generating
-            subsequent ones. Remarkably, <span class="dmethod">4M</span> is able to perform
-            this feat without needing any loss-balancing or architectural modifications
-            commonly used in multitask learning.
-            Below, we showcase the generation of all modalities given one input modality, but
-            as we show in other visualizations further below, <span class="dmethod">4M</span>
-            can also effectively integrate information from multiple inputs.
-            Click <a href="https://storage.googleapis.com/four_m_site/images/one-to-any/matrix.svg">here</a>
-            for a zoomable version of the figure below.
-          </p>
-          <!-- <p><i>
-            Hint: Click on the squares to scale up the image/text.
-          </i></p> -->
-        </div>
-        <figure class="image is-square">
-          <iframe id="matrixFrame" class="has-ratio" height="100%" src="static/images/one-to-any/matrix.svg" allowfullscreen></iframe>
-          <div id="overlay"></div>
-          <div id="popup"></div>
-        </figure>
-        <h2 class="subtitle has-text-centered">
-          <span class="dmethod">4M</span> can generate all modalities from a given input modality
-          using chained generation. Notice the high consistency among the predictions of all
-          modalities for an input. Each row starts from a different modality coming from the same data sample.
-        </h2>
-        <!--/ Any-to-any. -->
-
-        <br/>
-
-        <!-- RGB to All generation -->
-        <a class="anchor" id="rgb-to-all"></a>
-        <h3 class="title is-4">RGB-to-all generation</h3>
-        <div class="content has-text-justified">
-          <p>
-            In this example, we illustrate the generation of several modalities from an RGB image.
-            As demonstrated <span class="dmethod">4M</span> is able to generate all modalities in a
-            self-consistent manner.
-          </p>
-        </div>
-        <div class="bboxprobing-panel">
-          <figure class="image is-5by4">
-            <iframe id="rgb2allFrame" class="has-ratio" width="100%" src="https://storage.googleapis.com/four_m_site/images/rgb-to-all/0/plot.svg" allowfullscreen></iframe>
-            <div id="overlay"></div>
-            <div id="popup"></div>
-          </figure>
-
-          <div class="columns is-centered is-mobile is-vcentered">
-            <div class="column is-1 has-text-centered"></div>
-            <div class="column is-10 has-text-centered">
-              <button class="button" id="prev-button" onclick="prevRGB2AllImage()">
-                <span class="icon">
-                  <i class="fas fa-arrow-left"></i>
-                </span>
-                <span>Prev.</span>
-              </button>
-              <button class="button" id="next-button" onclick="nextRGB2AllImage()">
-              <span>Next</span>
-              <span class="icon">
-                  <i class="fas fa-arrow-right"></i>
-              </span>
-              </button>
-            </div>
-            <div class="column is-1 has-text-centered"></div>
-          </div>
-
-          <p style="text-align:center"><i>
-            Hint: Use the buttons to explore different images.
-          </i></p>
-          <br/>
-        </div>
-        <!-- RGB to All generation ending -->
-
-        <br/>
-
-        <!-- Fine-grained generation and editing. -->
-        <a class="anchor" id="fine-grained-generation-editing"></a>
-        <h3 class="title is-4">Fine-grained generation & editing</h3>
-        <div class="content has-text-justified">
-          <p>
-            Through the above shown any-to-any capabilities and the fact that <span class="dmethod">4M</span>
-            can perform generation from partial inputs, we can do fine-grained multimodal generation
-            and editing tasks, as shown in the examples below. Key to this is that certain modalities such as
-            semantic segmentation or depth maps can serve as intermediate steps in the generation process,
-            grounding the generation of subsequent modalities, while allowing to perform high-level semantic
-            edits on them.
-          </p>
-        </div>
-        <figure class="image">
-          <img src="https://storage.googleapis.com/four_m_site/images/4M_editing.svg" alt="Multimodal editing">
-        </figure>
-        <h2 class="subtitle has-text-centered">
-          <span class="dmethod">4M</span>'s in-painting and any-to-any prediction abilities unlock a
-          suite of multimodal generation and editing capabilities, which allow for fine-grained creative control.
-        </h2>
-        <!-- Fine-grained generation and editing. -->
-
-        <br/>
-
-        <!-- Bounding box probing. -->
-        <div class="content has-text-justified">
-          <p>
-            In the following example, we showcase the generation of an RGB image conditioned on captions and
-            bounding boxes, and vary the position and shape of only one bounding box. Besides giving users a
-            higher degree of control, notice how the model is able to make sense of unusual bounding box inputs
-            (e.g. the bicycle above a bed is turned into a painting).
-          </p>
-        </div>
-        <div class="bboxprobing-panel">
-          <div class="columns is-mobile">
-            <div class="column is-4 has-text-centered">
-            <div id="bboxprobing-caption-input" class="rgb-image">
-              <img src="static/images/loading.jpg"/>
-            </div>
-            <h2 class="subtitle">Caption input</h2>
-          </div>
-          <div class="column is-4 has-text-centered">
-            <div id="bboxprobing-bbox-input" class="rgb-image">
-              <img src="static/images/loading.jpg"/>
-            </div>
-            <h2 class="subtitle">Bounding boxes input</h2>
-          </div>
-          <div class="column is-4 has-text-centered">
-              <div id="bboxprobing-wrapper-pred" class="rgb-image">
-                <img src="static/images/loading.jpg"/>
-              </div>
-              <h2 class="subtitle">RGB prediction</h2>
-            </div>
-          </div>
-
-          <div class="columns is-centered is-mobile is-vcentered">
-            <div class="column is-1 has-text-centered"></div>
-            <div class="column is-10 has-text-centered">
-              <input class="slider is-fullwidth is-large is-info has-output"
-                    id="bboxprobing-slider"
-                    step="1" min="0" max="99" value="0" type="range">
-              <br>
-              <button class="button" id="prev-button" onclick="prevBboxProbingImage()">
-                <span class="icon">
-                  <i class="fas fa-arrow-left"></i>
-                </span>
-                <span>Prev.</span>
-              </button>
-              <button class="button" id="next-button" onclick="nextBboxProbingImage()">
-              <span>Next</span>
-              <span class="icon">
-                  <i class="fas fa-arrow-right"></i>
-              </span>
-              </button>
-            </div>
-            <div class="column is-1 has-text-centered"></div>
-          </div>
-
-          <p style="text-align:center"><i>
-            Hint: Drag the slider to change the position of the bounding box input.
-            Use the buttons to explore different images.
-          </i></p>
-          <br/>
-        </div>
-        <!--/ Bounding box probing. -->
-
-        <br/>
-
-        <!-- Semantic editing. -->
-        <!-- <a class="anchor" id="semantic-editing"></a>
-        <h3 class="title is-4">Semantic editing</h3> -->
-        <div class="content has-text-justified">
-          <p>
-            In this example, we take a semantic segmentation map extracted from a reference image,
-            and show how <span class="dmethod">4M</span> resolves edits of a single class in the
-            segmentation map. Notice how <i>semantically</i> stable the fixed parts are, but how they can
-            change in <i>appearance</i> (e.g. the mountains in the first image become snow too when the
-            class of the ground changes to snow).
-          </p>
-        </div>
-        <div class="bboxprobing-panel">
-          <div class="columns is-mobile">
-           <div class="column is-2"></div>
-           <div class="column is-4 has-text-centered">
-             <div id="semsegmanipulation-semseg-input" class="rgb-image">
-               <img src="static/images/loading.jpg"/>
-             </div>
-             <h2 class="subtitle">Semantic input</h2>
-           </div>
-           <!-- <div class="column is-1"></div> -->
-           <div class="column is-4 has-text-centered">
-             <div id="semsegmanipulation-wrapper-pred" class="rgb-image">
-               <img src="static/images/loading.jpg"/>
-              </div>
-              <h2 class="subtitle">RGB prediction</h2>
-             </div>
-           </div>
-           <div class="column is-2"></div>
-
-          <div class="columns is-centered is-mobile is-vcentered">
-            <div class="column is-1 has-text-centered"></div>
-            <div class="column is-10 has-text-centered">
-              <input class="slider is-fullwidth is-large is-info has-output"
-                     id="semsegmanipulation-slider"
-                     step="1" min="0" max="3" value="0" type="range">
-              <br>
-              <button class="button" id="prev-button" onclick="prevSemsegManipulationImage()">
-                <span class="icon">
-                   <i class="fas fa-arrow-left"></i>
-                </span>
-                <span>Prev.</span>
-              </button>
-              <button class="button" id="next-button" onclick="nextSemsegManipulationImage()">
-               <span>Next</span>
-               <span class="icon">
-                   <i class="fas fa-arrow-right"></i>
-               </span>
-              </button>
-            </div>
-            <div class="column is-1 has-text-centered"></div>
-          </div>
-
-          <p style="text-align:center"><i>
-            Hint: Drag the slider to change the semantic input.
-            Use the buttons to explore different images.
-          </i></p>
-          <br/>
-        </div>
-        <!--/ Semantic editing. -->
-
-        <br/>
-
-        <!-- Multimodal guidance. -->
-        <a class="anchor" id="multimodal-guidance"></a>
-        <h3 class="title is-4">Multimodal guidance</h3>
-        <div class="content has-text-justified">
-          <p>
-            We are able to perform compositional generation by weighting different conditions
-            by different amounts. This allows users to control precisely how strongly or weakly a
-            generated output should follow each condition, as shown in the example below. It can further
-            be used to avoid the generation of certain undesired concepts via negative weighting.
-          </p>
-        </div>
-        <div class="mmguidance-panel">
-          <div class="columns is-mobile">
-            <div class="column is-4 has-text-centered">
-            <div id="mmguidance-caption-input" class="rgb-image">
-              <img src="static/images/loading.jpg"/>
-            </div>
-            <h2 class="subtitle">
-              Caption input<br>(Fixed weight: 2.0)
-            </h2>
-          </div>
-            <div class="column is-4 has-text-centered">
-              <div id="mmguidance-wrapper-pred" class="rgb-image">
-                <img src="static/images/loading.jpg"/>
-              </div>
-              <h2 class="subtitle">
-              RGB prediction
-              </h2>
-            </div>
-            <div class="column is-4 has-text-centered">
-            <div id="mmguidance-depth-input" class="rgb-image">
-              <img src="static/images/loading.jpg"/>
-            </div>
-            <h2 class="subtitle">
-              Depth input<br>
-              (Guidance weight: <output for="mmguidance-slider">49</output>)
-            </h2>
-          </div>
-          </div>
-
-          <div class="columns is-centered is-mobile is-vcentered">
-            <div class="column is-1 has-text-centered"></div>
-            <div class="column is-10 has-text-centered">
-              <input class="slider is-fullwidth is-large is-info has-output"
-                    id="mmguidance-slider"
-                    step="0.03" min="-1.00" max="2.00" value="0.48" type="range">
-              <br>
-              <button class="button" id="prev-button" onclick="prevMultimodalGuidanceImage()">
-                <span class="icon">
-                  <i class="fas fa-arrow-left"></i>
-                </span>
-                <span>Prev.</span>
-              </button>
-              <button class="button" id="next-button" onclick="nextMultimodalGuidanceImage()">
-              <span>Next</span>
-              <span class="icon">
-                  <i class="fas fa-arrow-right"></i>
-              </span>
-              </button>
-            </div>
-            <div class="column is-1 has-text-centered"></div>
-          </div>
-
-          <p style="text-align:center"><i>
-            Hint: Drag the slider to change the guidance weight of the depth conditioning.
-            Use the buttons to explore different images.
-          </i></p>
-          <br/>
-        </div>
-        <!--/ Multimodal guidance. -->
-
-         <br/>
-
-    </div>
-    <!--/ Animation. -->
-
-
-  </div>
-
-    <!-- Steerable generation. -->
-    <a class="anchor" id="steerable-generation"></a>
-    <h3 class="title is-4">Steerable data generation</h3>
-    <div class="content has-text-justified">
-      <p>
-        We extracted different kinds of image, semantic, and geometric metadata from the
-        RGB images and various pseudo labels, and trained a <span class="dmethod">4M</span>
-        model on all of them. This enables a large degree of controlability over the
-        generation process, as shown in the interactive visualization below.
-        Since <span class="dmethod">4M</span> can generate multiple modalities in a
-        self-consistent manner, this has exciting potential for future research into
-        steerable dataset generation.
-      </p>
-      <p><i>
-        Hint: Select parts of the histograms to filter the data. Click on unselected
-        parts of the histograms to reset the selection.
-      </i></p>
-    </div>
-    <!-- Container -->
-    <div class="metadatadesigner-panel container" id="metadatadesigner">
-      <!-- Row -->
-      <div class="columns is-multiline">
-
-              <!-- Metadata columns -->
-              <div class="column" id="charts">
-                  <br>
-                  <div id="sam-clutter-chart" class="chart">
-                    <div class="histtitle">SAM clutter score (# of SAM instances)</div>
-                  </div>
-                  <div id="coco-instances-chart" class="chart">
-                      <div class="histtitle">COCO clutter score (# of COCO instances)</div>
-                  </div>
-                  <div id="crowdedness-chart" class="chart">
-                    <div class="histtitle">Crowdedness score (# of human instances)</div>
-                  </div>
-                  <div id="semantic-diversity-chart" class="chart">
-                    <div class="histtitle">Semantic diversity (# of unique classes)</div>
-                  </div>
-                  <div id="instance-diversity-chart" class="chart">
-                    <div class="histtitle">Instance diversity (# of unique instance classes)</div>
-                  </div>
-                  <div id="objectness-chart" class="chart">
-                    <div class="histtitle">Objectness score (% of object pixels)</div>
-                  </div>
-                  <div id="walkability-chart" class="chart">
-                    <div class="histtitle">Walkability score (% of walkable pixels)</div>
-                  </div>
-                  <div id="occlusion-chart" class="chart">
-                    <div class="histtitle">Occlusion score (% of occlusion edge pixels)</div>
-                  </div>
-                  <aside id="totals" class="reset">
-                      <span id="active">-</span> of <span id="total">-</span> images selected.
-                      (<a href="javascript:filter([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])">Reset all</a>)
-                  </aside>
-              </div>
-
-              <div class="column" id="charts">
-                <br>
-                <div id="geometric-complexity-chart" class="chart">
-                  <div class="histtitle">Geometric complexity (normals ang. variance)</div>
-                </div>
-                <div id="orig-width-chart" class="chart">
-                  <div class="histtitle">Original image width</div>
-                </div>
-                <div id="orig-height-chart" class="chart">
-                  <div class="histtitle">Original image height</div>
-                </div>
-                <div id="brightness-chart" class="chart">
-                  <div class="histtitle">Image brightness</div>
-                </div>
-                <div id="contrast-chart" class="chart">
-                  <div class="histtitle">Image contrast</div>
-                </div>
-                <div id="saturation-chart" class="chart">
-                  <div class="histtitle">Image saturation</div>
-                </div>
-                <div id="colorfulness-chart" class="chart">
-                  <div class="histtitle">Image colorfulness</div>
-                </div>
-                <div id="entropy-chart" class="chart">
-                  <div class="histtitle">Image entropy</div>
-                </div>
-              </div>
-              <!-- /Metadata columns -->
-
-              <!-- Images -->
-              <div class="column">
-                  <div id="samples">
-                      <table width="100%" class="task-header" style="font-size:1vw;text-align: center;">
-                        <tr>
-                          <th>RGB</th>
-                          <th>Surface Normals</th>
-                          <th>Semantic Segmentation</th>
-                          <th>Humans</th>
-                        </tr>
-                      </table>
-                      <div id="task-samples" class="sample"></div>
-                  </div>
-              </div>
-              <!-- /Images -->
-          </div>
-          <!-- /Row -->
-        </div>
-        <!--/ Metadata designer viz -->
-
-        <br/>
-        <br/>
-
-        <!-- Text understanding. -->
-        <a class="anchor" id="text-understanding"></a>
-        <h3 class="title is-4">Improved text understanding</h3>
-        <div class="content has-text-justified">
-          <p>
-            We observe that <span class="dmethod">4M</span> models trained on a larger
-            variety of modalities and co-trained on a large text corpus (here denoted
-            <span class="dmethod">4M-21</span>) exhibit a higher degree of text understanding
-            compared to <span class="dmethod">4M-7</span> trained on a smaller set of modalities.
-            We note that this can be observed both when conditioning on T5-XXL
-            embeddings (which is a common technique), but also when inputing raw captions.
-          </p>
-        </div>
-        <figure class="image">
-          <img src="https://storage.googleapis.com/four_m_site/images/4M_text_understanding.svg" alt="Improved text understanding">
-        </figure>
-        <h2 class="subtitle has-text-centered">
-          <span class="dmethod">4M</span> pre-trained on a larger variety of modalities and co-trained
-          on a text corpus exhibits improved text understanding capabilities.
-        </h2>
-        <!--/ Text understanding. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-  </div>
-</section>
-<!--/ Generative visualizations -->
-
-
-<!-- Retrieval -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-
-        <a class="anchor" id="retrieval"></a>
-        <h2 class="title is-3">Multimodal retrieval</h2>
-        <div class="content has-text-justified">
-          <p>
-          <span class="dmethod">4M</span> enables performing multimodal retrievals by predicting
-          the global embeddings of DINOv2 and ImageBind models from any subset of the input modalities.
-          This unlocks new retrieval capabilities that were not possible with the vanilla DINOv2
-          and ImageBind models. Below we exemplify this for two cases, namely predicting RGB from any
-          modality (Any-to-RGB) and predicting any modality from RGB (RGB-to-any).
-          </p>
-        </div>
-
-         <!-- Any-to-RGB Retrieval -->
-         <a class="anchor" id="any2rgb-retrieval"></a>
-         <h3 class="title is-4">Any-to-RGB Retrieval</h3>
-         <div class="content has-text-justified">
-           <p>
-            As shown below, we can retrieve RGB images from distinctly different query modalities.
-            Note that each query modality constrains the retrieved RGBs differently (e.g. semantically or geometrically).
-           </p>
-         </div>
-         <div class="bboxprobing-panel">
-           <div class="columns is-mobile">
-            <!-- <div class="column is-1"></div> -->
-            <div class="column is-3 has-text-centered">
-              <div id="any2rgb-retrieval-query" class="rgb-image">
-                <img src="static/images/loading.jpg"/>
-              </div>
-              <h2 class="subtitle"><b id="any2rgb-retrieval-query-modality">Depth</b> Query</h2>
-            </div>
-            <!-- <div class="column is-1"></div> -->
-            <div class="column is-9 has-text-centered">
-              <div id="any2rgb-retrieval-rgb-retrieval" class="rgb-image">
-                <img src="static/images/loading.jpg"/>
-               </div>
-               <h2 class="subtitle">RGB Retrieval (Top-3)</h2>
-              </div>
-            </div>
-            <!-- <div class="column is-2"></div> -->
-
-           <div class="columns is-centered is-mobile is-vcentered">
-             <div class="column is-1 has-text-centered"></div>
-             <div class="column is-5 has-text-centered">
-               <input class="slider is-fullwidth is-large is-info has-output"
-                      id="any2rgb-retrieval-slider"
-                      step="1" min="0" max="3" value="0" type="range">
-               <br>
-               <button class="button" id="prev-button" onclick="prevAny2RgbRetrievalImage()">
-                 <span class="icon">
-                    <i class="fas fa-arrow-left"></i>
-                 </span>
-                 <span>Prev.</span>
-               </button>
-               <button class="button" id="next-button" onclick="nextAny2RgbRetrievalImage()">
-                <span>Next</span>
-                <span class="icon">
-                    <i class="fas fa-arrow-right"></i>
-                </span>
-               </button>
-             </div>
-             <div class="column is-1 has-text-centered"></div>
-           </div>
-
-           <p style="text-align:center"><i>
-             Hint: Drag the slider to change the query modality.
-             Use the buttons to explore different query instances.
-           </i></p>
-           <br/>
-         </div>
-
-        <br/>
-
-        <a class="anchor" id="rgb2any-retrieval"></a>
-        <h3 class="title is-4">RGB-to-any retrieval</h3>
-        <div class="content has-text-justified">
-          <p>
-            Likewise, given an RGB image as a query input, we can retrieve any other modality.
-          </p>
-        </div>
-
-        <div class="bboxprobing-panel">
-          <div class="columns is-mobile">
-          <div class="column is-3 has-text-centered">
-            <div id="rgb2any-retrieval-rgb-input" class="rgb-image">
-              <img src="static/images/loading.jpg"/>
-            </div>
-            <h2 class="subtitle">RGB input</h2>
-          </div>
-          <div class="column is-9 has-text-centered">
-            <div id="rgb2any-retrieval-wrapper-pred" class="rgb-image">
-              <img src="static/images/loading.jpg"/>
-              </div>
-              <h2 class="subtitle"><b id="rgb2any-retreival-modality">RGB</b> Retrieval (Top-3)</h2>
-            </div>
-          </div>
-
-          <div class="columns is-centered is-mobile is-vcentered">
-            <div class="column is-1 has-text-centered"></div>
-            <div class="column is-5 has-text-centered">
-              <input class="slider is-fullwidth is-large is-info has-output"
-                    id="rgb2any-retrieval-slider"
-                    step="1" min="0" max="3" value="0" type="range">
-              <br>
-              <button class="button" id="prev-button" onclick="prevRgb2AnyRetrievalImage()">
-                <span class="icon">
-                  <i class="fas fa-arrow-left"></i>
-                </span>
-                <span>Prev.</span>
-              </button>
-              <button class="button" id="next-button" onclick="nextRgb2AnyRetrievalImage()">
-              <span>Next</span>
-              <span class="icon">
-                  <i class="fas fa-arrow-right"></i>
-              </span>
-              </button>
-            </div>
-            <div class="column is-1 has-text-centered"></div>
-          </div>
-
-          <p style="text-align:center"><i>
-            Hint: Drag the slider to change the retrieved modality.
-            Use the buttons to explore different query images.
-          </i></p>
-          <br/>
-        </div>
-
-<!--        <a class="anchor" id="multimodal-retrieval"></a>-->
-<!--        <h3 class="title is-4">Multimodal retrieval</h3>-->
-<!--        <div class="content has-text-justified">-->
-<!--          <p>-->
-<!--            TODO @OZ-->
-<!--          </p>-->
-<!--        </div>-->
-
-      </div>
-    </div>
-  </div>
-</section>
-<!--/ Retrieval -->
-
-
-<!-- Transfers -->
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <a class="anchor" id="transfers-ablations"></a>
-        <h2 class="title is-3">Transfers & ablations</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            We perform an extensive set of ablations and transfer experiments to understand the
-            impact of different design choices of <span class="dmethod">4M</span> training and to
-            showcase its transfer capabilities. We show that <span class="dmethod">4M</span>
-            is a scalable and versatile training method that transfers well to a wide range of
-            downstream tasks.
-          </p>
-        </div>
-
-        <br/>
-
-        <a class="anchor" id="transfers"></a>
-        <h3 class="title is-4">Transfers</h3>
-        <div class="content has-text-justified">
-          <p>
-            We transfer <span class="dmethod">4M</span> models of different sizes to ImageNet-1K classification,
-            COCO object detection and instance segmentation, ADE20K semantic segmentation, and NYUv2 depth estimation.
-            <span class="dmethod">4M</span> outperforms the baselines on all tasks except for ImageNet-1K, surpassed
-            by DeiT III which is a specialized model. In contrast to <span class="dmethod">4M</span>, all of the baselines employed data
-            augmentations to achieve their results.
-          </p>
-        </div>
-
-        <div class="table-container">
-          <table class="table is-hoverable table-row-active-background-color=hsl(0%, 100%, 41%)" align="center">
-            <thead>
-              <tr>
-                <th>Method</th>
-                <th>Training<br>data<br></th>
-                <th>Data<br>aug.<br></th>
-                <th>Extra<br>labels<br></th>
-                <th class="has-text-centered">ImageNet-1K<br>(Top 1 acc. ↑)<br></th>
-                <th class="has-text-centered" colspan="2">COCO<br>(AP<sup>box</sup> & AP<sup>mask</sup> ↑)<br></th>
-                <th class="has-text-centered">ADE20K<br>(mIoU ↑)<br></th>
-                <th class="has-text-centered">Depth<br>(δ<sub>1</sub> acc. ↑)<br></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>MAE B</td>
-                <td>IN-1K</td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered">84.2</td>
-                <td class="has-text-centered">48.3</td>
-                <td class="has-text-centered">41.6</td>
-                <td class="has-text-centered">46.1</td>
-                <td class="has-text-centered">89.1</td>
-              </tr>
-              <tr>
-                <td>DeiT III B</td>
-                <td>IN-21K</td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered"><b><u>85.4</u></b></td>
-                <td class="has-text-centered">46.1</td>
-                <td class="has-text-centered">38.5</td>
-                <td class="has-text-centered">49.0</td>
-                <td class="has-text-centered">87.4</td>
-              </tr>
-              <tr>
-                <td>MultiMAE B</td>
-                <td>IN-1K</td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered">84.0</td>
-                <td class="has-text-centered">44.1</td>
-                <td class="has-text-centered">37.8</td>
-                <td class="has-text-centered">46.2</td>
-                <td class="has-text-centered">89.0</td>
-              </tr>
-              <tr>
-                <td><span class="dmethod">4M-B</span> (RGB → RGB only)</td>
-                <td>CC12M</td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered">82.8</td>
-                <td class="has-text-centered">42.3</td>
-                <td class="has-text-centered">36.6</td>
-                <td class="has-text-centered">38.3</td>
-                <td class="has-text-centered">80.4</td>
-              </tr>
-              <tr>
-                <td><span class="dmethod">4M-B</span> (RGB → CLIP only)</td>
-                <td>CC12M</td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered">83.4</td>
-                <td class="has-text-centered">46.6</td>
-                <td class="has-text-centered">39.9</td>
-                <td class="has-text-centered">43.0</td>
-                <td class="has-text-centered">85.7</td>
-              </tr>
-              <tr class="is-selected">
-                <td><span class="dmethod">4M-B</span></td>
-                <td>CC12M</td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered">84.5</td>
-                <td class="has-text-centered"><b><u>49.7</u></b></td>
-                <td class="has-text-centered"><b><u>42.7</u></b></td>
-                <td class="has-text-centered"><b><u>50.1</u></b></td>
-                <td class="has-text-centered"><b><u>92.0</u></b></td>
-              </tr>
-              <tr>
-                <td>MAE L</td>
-                <td>IN-1K</td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered">86.8</td>
-                <td class="has-text-centered">52.8</td>
-                <td class="has-text-centered">45.3</td>
-                <td class="has-text-centered">51.8</td>
-                <td class="has-text-centered">93.6</td>
-              </tr>
-              <tr>
-                <td>DeiT III L</td>
-                <td>IN-21K</td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered"><b><u>87.0</u></b></td>
-                <td class="has-text-centered">48.7</td>
-                <td class="has-text-centered">41.1</td>
-                <td class="has-text-centered">52.0</td>
-                <td class="has-text-centered">89.6</td>
-              </tr>
-              <tr class="is-selected">
-                <td><span class="dmethod">4M-L</span></td>
-                <td>CC12M</td>
-                <td class="has-text-centered"><i class="fas fa-times"></i></td>
-                <td class="has-text-centered"><i class="fas fa-check"></i></td>
-                <td class="has-text-centered">86.6</td>
-                <td class="has-text-centered"><b><u>53.7</u></b></td>
-                <td class="has-text-centered"><b><u>46.4</u></b></td>
-                <td class="has-text-centered"><b><u>53.4</u></b></td>
-                <td class="has-text-centered"><b><u>94.4</u></b></td>
-              </tr>
-            </tbody>
-            </table>
-          </div>
-
-        <br/>
-
-        <a class="anchor" id="ablations"></a>
-        <h3 class="title is-4">Ablations</h3>
-        <div class="content has-text-justified">
-          <p>
-            We perform an extensive ablation study to understand key design choices of
-            <span class="dmethod">4M</span> training, including what modalities to pre-train on,
-            how to sample from them for the multimodal masking scheme, and how many input and
-            output tokens should be used. We measure the effect of different design choices by
-            transferring the trained models to a diverse set of downstream tasks and reporting the
-            average loss. We note that training <span class="dmethod">4M</span> on all modalities as
-            both inputs and targets results in a generalist model that transfers best to novel tasks and
-            modalities on average.
-            Please see our <a href="#publications">NeurIPS paper appendix</a> for further ablations.
-          </p>
-        </div>
-
-        <div class="columns is-centered">
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Training inputs & targets (Avg. Loss ↓)</h3>
-            <canvas id="barChartAblationRGB2X" height="150"></canvas>
-          </div>
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Training inputs & targets (Avg. Loss ↓)</h3>
-            <canvas id="barChartAblationAll2X" height="150"></canvas>
-          </div>
-        </div>
-
-        <div class="columns is-centered">
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Input ɑ & Target ɑ (Avg. Loss ↓)</h3>
-            <canvas id="barChartAblationAlphas" height="200"></canvas>
-          </div>
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Input Tokens (Avg. Loss ↓)</h3>
-            <canvas id="barChartAblationInputTokens" height="200"></canvas>
-          </div>
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Target Tokens (Avg. Loss ↓)</h3>
-            <canvas id="barChartAblationTargetTokens" height="200"></canvas>
-          </div>
-        </div>
-
-        <div class="content has-text-justified">
-          <p>
-            We further show promising scaling trends in terms of dataset size, training duration,
-            and model size.
-          </p>
-        </div>
-
-        <div class="columns is-centered">
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Dataset Size (Avg. Loss ↓)</h3>
-            <canvas id="barChartScalingDataset" height="200"></canvas>
-          </div>
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Train Tokens (Avg. Loss ↓)</h3>
-            <canvas id="barChartScalingTokens" height="200"></canvas>
-          </div>
-          <div class="column has-text-centered ablation">
-            <h3 class="title is-5">Model Size (Avg. Loss ↓)</h3>
-            <canvas id="barChartScalingModel" height="200"></canvas>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-</section>
-<!--/ Transfers -->
 
 <hr>
-
-<!-- <section class="section">
-  <div class="container is-max-desktop">
-    <h1 class="title">Team (random order)</h1>
-    <div class="columns is-multiline" id="team-members">
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Roman.webp">
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://roman-bachmann.github.io/" target="_blank">Roman Bachmann</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/David.webp">
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://dmizrahi.com/" target="_blank">David Mizrahi</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Oguzhan.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://ofkar.github.io/" target="_blank">Oğuzhan Fatih Kar</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Ali.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://garjania.github.io/" target="_blank">Ali Garjani</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Mingfei.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://fly6464.github.io/" target="_blank">Mingfei Gao</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Teresa.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://aserety.github.io/" target="_blank">Teresa Yeo</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Dave.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://www.dgriffiths.uk/" target="_blank">David Griffiths</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Jiaming.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=vm3imKsAAAAJ&hl=en" target="_blank">Jiaming Hu</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Afshin.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://www.afshindehghan.com/" target="_blank">Afshin Dehghan</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div class="column is-one-fifth">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img src="https://storage.googleapis.com/four_m_site/images/members/Amir.webp" >
-            </figure>
-          </div>
-          <div class="card-content">
-            <span class="author-block">
-              <a href="https://vilab.epfl.ch/zamir/" target="_blank">Amir Zamir</a>
-            </span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section> -->
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Acknowledgements</h2>
-    <div class="content has-text-justified">
-      <p>
-        We thank Elmira Amirloo Abolfathi, Andrei Atanov, Hanlin Goh, Yuri Gorokhov,
-        Kimi Huang, Javier Movellan, Hosna Oyarhoseini, Fernando Serrano Garcia,
-        Feng Tang, and Qian Zhou for their help with the project.
-      </p>
-    </div>
-  </div>
-</section>
-
 
 <footer class="footer">
   <div class="container">
