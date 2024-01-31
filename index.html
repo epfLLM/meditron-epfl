@@ -146,6 +146,15 @@
             <a href="https://huggingface.co/epfl-llm"
               target="_blank" class="external-link button is-normal is-rounded is-dark">
               <span class="icon">
+                <i class="fa fa-brain"></i>
+              </span>
+              <span>Weights</span>
+            </a>
+          </span>
+          <span class="link-block-header">
+            <a href="https://huggingface.co/datasets/epfl-llm/guidelines"
+              target="_blank" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon">
                 <i class="fa fa-database"></i>
               </span>
               <span>Dataset</span>
@@ -165,8 +174,8 @@
     <div class="hero-body">
       <img src="static/images/medical_performance.png" alt="4M pull figure."/>
       <h2 class="subtitle has-text-centered">
-        <span class="dmethod">MEDITRON-70B</span>’s performance on MedQA MEDITRON-70B achieves an accuracy of
-        70.2 % on USMLE-style questions in the MedQA (4 options) dataset.
+        <span class="dmethod">MEDITRON-70B</span>’s performance on common medical reasoning benchmarks: MEDITRON-70B achieves an avergae accuracy of
+        72 %. MEDITRON outperforms open-access medical LLMs, GPT-3.5, Med-PaLM, and is in range of the most powerful commercial LLMs--GPT-4 and Med-PaLM-2.
       </h2>
     </div>
   </div>
@@ -180,7 +189,6 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3" id="about">Summary</h2>
         <div class="content has-text-justified">
-
           <p>
             Large language models (LLMs) can potentially democratize access to medical knowledge. While many efforts have been made to harness and improve LLMs' medical knowledge and reasoning capacities, the resulting models are either closed-source (e.g., PaLM, GPT-4) or limited in scale (<= 13B parameters), which restricts their abilities.
           </p>
@@ -193,27 +201,12 @@
           <p>
             We release our code for curating the medical pretraining corpus and the <span class="dmethod">MEDITRON-70B</span> model weights to drive open-source development of more capable medical LLMs.
           </p>
-          <!-- <p>
-            <span class="dmethod">4M</span> leads to models that exhibit several key capabilities:
-            <ol type="I">
-              <li>
-                they can perform a diverse set of vision tasks out of the box,
-              </li>
-              <li>
-                they excel when fine-tuned for unseen downstream tasks or new input modalities, and
-              </li>
-              <li>
-                they can function as a generative model that can be conditioned on arbitrary modalities,
-                enabling a wide variety of expressive multimodal editing capabilities with remarkable flexibility.
-              </li>
-            </ol>
-          </p> -->
-
         </div>
 
         <figure class="image mod-figure">
           <img src="static/images/meditron-process.png" alt="Modalities overview">
         </figure>
+
         <!-- <h2 class="subtitle has-text-centered">
             <span class="dmethod">4M</span> enables training a single model on tens
             of diverse modalities. The resulting model can generate <em>any</em> of
@@ -229,13 +222,6 @@
       <iframe src="https://www.youtube.com/embed/37ZQI_-17TI?si=1KTdYxHHNc-9aD0O" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <!-- <h2 class="subtitle has-text-centered">
-      Introductory video (6min) <i class="fa fa-volume-up"></i>.
-      English captions are available in the video settings.
-    </h2> -->
-    <!--/ Introductory video -->
-
-
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
         <a class="anchor" id="publications"></a>
@@ -244,7 +230,7 @@
         <!-- Publication tiles. -->
         <div class="tile is-ancestor is-centered">
 
-          <!-- NeurIPS -->
+          <!-- Journal -->
           <div class="tile is-parent is-12">
             <article class="tile is-child box">
               <p class="title is-4">MEDITRON-70B: Scaling Medical Pretraining for Large Language Models</p>
@@ -254,17 +240,34 @@
                   <a href="" target="_blank">Zeming Chen</a> <sup>1</sup>,
                 </span>
                 <span class="author-block">
-                  <a href="" target="_blank">Alejandro Hernández Cano</a> <sup>1 *</sup>,
+                  <a href="" target="_blank">Alejandro Hernández-Cano</a> <sup>1 *</sup>,
                 </span>
                 <span class="author-block">
                   <a href="" target="_blank">Angelika Romanou</a> <sup>1 *</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="" target="_blank">Antoine Bonnet</a> <sup>1 *</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="" target="_blank">Kyle Matoba</a> <sup>2 *</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="" target="_blank">Mary-Anne Hartley</a> <sup>1,3</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="" target="_blank">Martin Jaggi</a> <sup>1</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="" target="_blank">Antoine Bosselut</a> <sup>1</sup>,
                 </span>
               </div>
 
               <div class="is-size-5 publication-authors">
                 <span class="author-block"><sup>1</sup>EPFL</span>
                 &nbsp;
-                <span class="author-block"><sup>2</sup>Apple</span>
+                <span class="author-block"><sup>2</sup>Idiap Research Institute</span>
+                &nbsp;
+                <span class="author-block"><sup>3</sup>Yale</span>
               </div>
 
               <div class="is-size-6 publication-contribution">
@@ -272,17 +275,21 @@
               </div>
 
               <div class="is-size-5 has-text-weight-semibold mt-3 publication-title">
-                <span class="author-block">NeurIPS 2023 (spotlight)</span>
+                <span class="author-block">Top ML Papers of the Week (by dair.ai)</span>
               </div>
 
               <br>
 
               <p>
-                This paper introduces the <span class="dmethod">4M</span> framework for training
-                multimodal and multitask models and applies it to a diverse set of tokenized modalities
-                including text, images, geometric, and semantic modalities, as well as neural network
-                feature maps. We investigate the capabilities of <span class="dmethod">4M</span> models
-                through a series of transfer experiments, and study key design choices in an extensive ablation.
+                <span class="dmethod">MEDITRON</span>  is a suite of open-source medical Large Language Models (70B & 7B)
+                adapted to the medical domain from Llama-2
+                through continued pretraining on a comprehensively curated medical corpus,
+                including selected PubMed articles, abstracts, and internationally-recognized medical guidelines.
+                <span class="dmethod">MEDITRON</span>-70B,
+                finetuned on relevant training data, demonstrates high-level medical reasoning and
+                improved domain-specific benchmark performance over Llama-2-70B, GPT-3.5, and Flan-PaLM.
+                We democratize an optimized workflow to scale up domain-specific pretraining for medical LLMs
+                to help revolutionize access to medical knowledge and evidence through open-source LLMs.
               </p>
 
               <br>
@@ -301,45 +308,62 @@
                   </span>
                   <!-- Code Link. -->
                   <span class="link-block">
-                    <a target="_blank" class="external-link button is-normal is-rounded is-dark" disabled>
+                    <a href="https://github.com/epfLLM/meditron"
+                      target="_blank" class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
                           <i class="fab fa-github"></i>
                       </span>
-                      <span>Code & weights (coming soon)</span>
-                      </a>
+                      <span>Main Code</span>
+                    </a>
                   </span>
-                  <!-- Poster -->
                   <span class="link-block">
-                    <a href="https://storage.googleapis.com/four_m_site/presentation/4M_Poster_NeurIPS.pdf"
-                       target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <a href="https://github.com/epfLLM/Megatron-LLM"
+                      target="_blank" class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
-                          <i class="far fa-sticky-note"></i>
+                          <i class="fab fa-github"></i>
                       </span>
-                      <span>Poster</span>
-                      </a>
+                      <span>Trainer Code</span>
+                    </a>
                   </span>
-                  <!-- Slides (Keynote) -->
                   <span class="link-block">
-                    <a href="https://storage.googleapis.com/four_m_site/presentation/4M_Slides_NeurIPS.key"
-                       target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <a href="https://huggingface.co/epfl-llm"
+                      target="_blank" class="external-link button is-normal is-rounded is-dark">
                       <span class="icon">
-                          <i class="fas fa-file-powerpoint"></i>
+                        <i class="fa fa-brain"></i>
                       </span>
-                      <span>Slides (Keynote)</span>
-                      </a>
+                      <span>Weights</span>
+                    </a>
                   </span>
-
+                  <span class="link-block">
+                    <a href="https://huggingface.co/datasets/epfl-llm/guidelines"
+                      target="_blank" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fa fa-database"></i>
+                      </span>
+                      <span>Dataset</span>
+                    </a>
+                  </span>
                   <!-- BibTeX -->
                   <div id="modal-js-example" class="modal">
                     <div class="modal-background"></div>
                     <div class="modal-content">
                       <div class="box">
                         <h2 class="title">BibTeX</h2>
-                          <pre style="text-align: left;"><code>@inproceedings{4m,
-  title={{4M}: Massively Multimodal Masked Modeling},
-  author={Mizrahi, David and Bachmann, Roman and Kar, O{\u{g}}uzhan Fatih and Yeo, Teresa and Gao, Mingfei and Dehghan, Afshin and Zamir, Amir},
-  booktitle={Advances in Neural Information Processing Systems},
-  year={2023}
+                          <pre style="text-align: left;"><code>@misc{chen2023meditron70b,
+  title={MEDITRON-70B: Scaling Medical Pretraining for Large Language Models},
+      author={Zeming Chen and Alejandro Hernández-Cano and Angelika Romanou and Antoine Bonnet and Kyle Matoba and Francesco Salvi and Matteo Pagliardini and Simin Fan and Andreas Köpf and Amirkeivan Mohtashami and Alexandre Sallinen and Alireza Sakhaeirad and Vinitra Swamy and Igor Krawczuk and Deniz Bayazit and Axel Marmet and Syrielle Montariol and Mary-Anne Hartley and Martin Jaggi and Antoine Bosselut},
+      year={2023},
+      eprint={2311.16079},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@software{epfmedtrn,
+  author = {Zeming Chen and Alejandro Hernández-Cano and Angelika Romanou and Antoine Bonnet and Kyle Matoba and Francesco Salvi and Matteo Pagliardini and Simin Fan and Andreas Köpf and Amirkeivan Mohtashami and Alexandre Sallinen and Alireza Sakhaeirad and Vinitra Swamy and Igor Krawczuk and Deniz Bayazit and Axel Marmet and Syrielle Montariol and Mary-Anne Hartley and Martin Jaggi and Antoine Bosselut},
+  title = {MediTron-70B: Scaling Medical Pretraining for Large Language Models},
+  month = November,
+  year = 2023,
+  url = {https://github.com/epfLLM/meditron}
 }</code></pre>
                       </div>
                     </div>
@@ -376,11 +400,11 @@
         <div class="tile is-ancestor is-centered">
 
           <div class="tile is-parent">
-            <a href="#method" class="tile is-child box asdf">
+            <a href="#data_mixture" class="tile is-child box asdf">
               <p class="title is-4"><span class="dmethod">Data Mixture</p>
               <p>
-                Discover the <span class="dmethod">4M</span> training
-                strategy and multimodal generation scheme.
+                Discover <span class="dmethod">MEDITRON</span>'s pre-training data mixture and
+                the strategy of data collection & preprocessing.
               </p>
             </a>
           </div>
@@ -389,8 +413,7 @@
             <a href="#retrieval" class="tile is-child box">
               <p class="title is-4">Pre-Training</p>
               <p>
-                See how <span class="dmethod">4M</span> can distill contrastive objectives
-                and emerge multimodal retrieval capabilities.
+                 Find out how <span class="dmethod">MEDITRON</span> scales up the continued pre-training in the medical domain for LLMs.
               </p>
             </a>
           </div>
@@ -399,8 +422,7 @@
             <a href="#transfers-ablations" class="tile is-child box">
               <p class="title is-4">Evaluation</p>
               <p>
-                Explore key design choices and how <span class="dmethod">4M</span>
-                transfers to novel downstream tasks.
+                Explore key achievements made by <span class="dmethod">MEDITRON</span>, compared to other state-of-the-art LLMs.
               </p>
             </a>
           </div>
@@ -422,7 +444,7 @@
     <!-- 4M training and generation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <a class="anchor" id="method"></a>
+        <a class="anchor" id="data_mixture"></a>
         <h2 class="title is-3"><span class="dmethod">4M</span> method overview</h2>
 
         <div class="content has-text-justified">
@@ -533,91 +555,31 @@
           </h2>
         </div>
 
-
-<!--        <div class="content has-text-justified">-->
-<!--          <p>-->
-<!--            TODO: Description about tokenizers reconstructions @OZ-->
-<!--          </p>-->
-<!--        </div>-->
-
-            <!-- Tokenization examples -->
-<!--        <div class="tok-panel">-->
-<!---->
-<!--          <div class="columns is-multiline is-mobile">-->
-<!--            <div class="column is-4 has-text-centered">-->
-<!--              <div id="tok-gt" class="rgb-image">-->
-<!--                <img src="static/images/loading.jpg"/>-->
-<!--              </div>-->
-<!--              <h2 class="tok-subtitle">Ground Truth</h2>-->
-<!--            </div>-->
-<!--            <div class="column is-4 has-text-centered">-->
-<!--              <div id="tok-vqvae" class="rgb-image">-->
-<!--                <img src="static/images/loading.jpg"/>-->
-<!--              </div>-->
-<!--              <h2 class="tok-subtitle">VQ-VAE</h2>-->
-<!--            </div>-->
-<!--            <div class="column is-4 has-text-centered">-->
-<!--              <div id="tok-vqgan-lpips" class="rgb-image">-->
-<!--                <img src="static/images/loading.jpg"/>-->
-<!--              </div>-->
-<!--              <h2 class="tok-subtitle">VQ-GAN (LPIPS)</h2>-->
-<!--            </div>-->
-<!--            <div class="column is-4 has-text-centered">-->
-<!--              <div id="tok-vqgan-clip" class="rgb-image">-->
-<!--                <img src="static/images/loading.jpg"/>-->
-<!--              </div>-->
-<!--              <h2 class="tok-subtitle">VQ-GAN (CLIP)</h2>-->
-<!--            </div>-->
-<!--            <div class="column is-4 has-text-centered">-->
-<!--              <div id="tok-diffusion" class="rgb-image">-->
-<!--                <img src="static/images/loading.jpg"/>-->
-<!--              </div>-->
-<!--              <h2 class="tok-subtitle">Diffusion model</h2>-->
-<!--            </div>-->
-<!--            <div class="column is-4 has-text-centered">-->
-<!--              <div id="tok-controlnet" class="rgb-image">-->
-<!--                <img src="static/images/loading.jpg"/>-->
-<!--              </div>-->
-<!--              <h2 class="tok-subtitle">ControlNet</h2>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          -->
-<!--          <div class="columns is-centered is-mobile is-vcentered">-->
-<!--            <div class="column is-1 has-text-centered"></div>-->
-<!--            <div class="column is-10 has-text-centered">-->
-<!--              <!-- <br> -->
-<!--              <button class="button" id="prev-button" onclick="prevTokImage()">-->
-<!--                <span class="icon">-->
-<!--                  <i class="fas fa-arrow-left"></i>-->
-<!--                </span>-->
-<!--                <span>Prev.</span>-->
-<!--              </button>-->
-<!--              <button class="button" id="next-button" onclick="nextTokImage()">-->
-<!--              <span>Next</span>-->
-<!--              <span class="icon">-->
-<!--                  <i class="fas fa-arrow-right"></i>-->
-<!--              </span>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--            <div class="column is-1 has-text-centered"></div>-->
-<!--          </div>-->
-<!---->
-<!--          <p style="text-align:center"><i>-->
-<!--            Hint: Use the buttons to explore different images.-->
-<!--          </i></p>-->
-<!--          <br/>-->
-<!---->
-<!--        </div>-->
-<!--        <!--/ Tokenization examples -->
-
       </div>
     </div>
     <!--/ 4M training and generation. -->
 
+
+
   </div>
 </section>
 
-
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    <div class="content has-text-justified">
+      <p>
+        We are extremely grateful to the EPFL Research Computing Platform Cluster team and the EPFL
+School of Computer and Communication Sciences for providing the computing resources for this
+project. We are especially grateful to Khadidja Malleck, Ed Bugnion, Jim Larus, Anna Fontcuberta i
+Morral, and Rüdiger Urbanke for their support in organizing the resources for this project. We also
+thank the IT team, Yoann Moulin and Emmanuel Jaep, for their technical support on the cluster, and
+Marcel Salathé, Jacques Fellay, and François Fleuret for providing feedback on earlier versions of
+this draft. We also thank Katie Link and Lewis Tunstall from HuggingFace for their support.
+      </p>
+    </div>
+  </div>
+</section> -->
 
 <hr>
 
