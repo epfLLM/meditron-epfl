@@ -4,9 +4,26 @@
     --csemseg: #0A9396;
 }
 
-body {
-  /* font-family: 'Noto Sans', sans-serif; */
-  /* background: linear-gradient(to right, #DFE7FD, #D3F8E2); */
+/* body {
+  font-family: 'Noto Sans', sans-serif;
+  background: linear-gradient(to right, #DFE7FD, #D3F8E2);
+} */
+
+.responsive-iframe {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.responsive-iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 ol > li::marker {

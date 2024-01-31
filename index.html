@@ -100,13 +100,12 @@
 
       <div class="columns is-centered">
 
-        <div class="row has-text-left">
+        <div class="columns has-text-left" style="margin-right: 10%;">
           <div class="title-container">
             <img src="static/images/meditron_LOGO_monogram_transparent.png" class="logo" width="100" alt="4M logo"/>
-            <h1 id="scrollingHead" class="title is-1">MEDITRON-70B:<br><span class="publication-title">Scaling Medical Pretraining<br>for Large Language Models</span></h1>
+            <h1 id="scrollingHead" class="title is-1"><b>MEDITRON-70B:</b><br><span class="publication-title">Scaling Medical Pretraining<br>for Large Language Models</span></h1>
           </div>
         </div>
-
         <div class="logo-container">
           <img src="static/images/epfl-logo.png" class="logo" width="140" alt="EPFL logo"/>
         </div>
@@ -183,13 +182,13 @@
         <div class="content has-text-justified">
 
           <p>
-            Large language models (LLMs) can potentially democratize access to medical knowledge. While many efforts have been made to harness and improve LLMs' medical knowledge and reasoning capacities, the resulting models are either closed-source (e.g., PaLM, GPT-4) or limited in scale (<= 13B parameters), which restricts their abilities. 
+            Large language models (LLMs) can potentially democratize access to medical knowledge. While many efforts have been made to harness and improve LLMs' medical knowledge and reasoning capacities, the resulting models are either closed-source (e.g., PaLM, GPT-4) or limited in scale (<= 13B parameters), which restricts their abilities.
           </p>
           <p>
-            In this work, we improve access to large-scale medical LLMs by releasing <span class="dmethod">MEDITRON</span>: a suite of open-source LLMs with 7B and 70B parameters adapted to the medical domain. <span class="dmethod">MEDITRON</span> builds on Llama-2 (through our adaptation of Nvidia's Megatron-LM distributed trainer), and extends pretraining on a comprehensively curated medical corpus, including selected PubMed articles, abstracts, and internationally-recognized medical guidelines. 
+            In this work, we improve access to large-scale medical LLMs by releasing <span class="dmethod">MEDITRON</span>: a suite of open-source LLMs with 7B and 70B parameters adapted to the medical domain. <span class="dmethod">MEDITRON</span> builds on Llama-2 (through our adaptation of Nvidia's Megatron-LM distributed trainer), and extends pretraining on a comprehensively curated medical corpus, including selected PubMed articles, abstracts, and internationally-recognized medical guidelines.
           </p>
           <p>
-            Evaluations using four major medical benchmarks show significant performance gains over several state-of-the-art baselines before and after task-specific finetuning. Overall, <span class="dmethod">MEDITRON</span> achieves a 6% absolute performance gain over the best public baseline in its parameter class and 3% over the strongest baseline we finetuned from Llama-2. Compared to closed-source LLMs, <span class="dmethod">MEDITRON-70B</span> outperforms GPT-3.5 and Med-PaLM and is within 5% of GPT-4 and 10% of Med-PaLM-2. 
+            Evaluations using four major medical benchmarks show significant performance gains over several state-of-the-art baselines before and after task-specific finetuning. Overall, <span class="dmethod">MEDITRON</span> achieves a 6% absolute performance gain over the best public baseline in its parameter class and 3% over the strongest baseline we finetuned from Llama-2. Compared to closed-source LLMs, <span class="dmethod">MEDITRON-70B</span> outperforms GPT-3.5 and Med-PaLM and is within 5% of GPT-4 and 10% of Med-PaLM-2.
           </p>
           <p>
             We release our code for curating the medical pretraining corpus and the <span class="dmethod">MEDITRON-70B</span> model weights to drive open-source development of more capable medical LLMs.
@@ -226,19 +225,14 @@
     <!--/ Abstract. -->
 
     <!-- Introductory video -->
-    <video id="teaser" controls="controls" height="100%" width="100%" preload="metadata">
-      <source src="https://storage.googleapis.com/four_m_site/videos/4M_Website_Video.mp4#t=0.1"
-              type="video/mp4">
-      <!-- <track
-        label="English"
-        kind="subtitles"
-        srclang="en"
-        src="static/videos/ECCV2022_MultiMAE.vtt" /> -->
-    </video>
-    <h2 class="subtitle has-text-centered">
+    <div class="responsive-iframe">
+      <iframe src="https://www.youtube.com/embed/37ZQI_-17TI?si=1KTdYxHHNc-9aD0O" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <!-- <h2 class="subtitle has-text-centered">
       Introductory video (6min) <i class="fa fa-volume-up"></i>.
-      <!-- English captions are available in the video settings. -->
-    </h2>
+      English captions are available in the video settings.
+    </h2> -->
     <!--/ Introductory video -->
 
 
