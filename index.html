@@ -220,9 +220,12 @@
           </p>
         </div>
 
-        <figure class="image mod-figure">
-          <img src="static/images/meditron-process.png" alt="Modalities overview">
-        </figure>
+        <div style="margin-top: 5%;">
+          <figure class="image mod-figure">
+            <img src="static/images/meditron-process.png" alt="Modalities overview">
+          </figure>
+        </div>
+
 
         <!-- <h2 class="subtitle has-text-centered">
             <span class="dmethod">4M</span> enables training a single model on tens
@@ -410,24 +413,24 @@
                         <h2 class="title">BibTeX</h2>
                           <pre style="text-align: left;">
                             <code>
-                              @misc{
-                                chen2023meditron70b,
-                                title={MEDITRON-70B: Scaling Medical Pretraining for Large Language Models},
-                                author={Zeming Chen and Alejandro Hernández-Cano and Angelika Romanou and Antoine Bonnet and Kyle Matoba and Francesco Salvi and Matteo Pagliardini and Simin Fan and Andreas Köpf and Amirkeivan Mohtashami and Alexandre Sallinen and Alireza Sakhaeirad and Vinitra Swamy and Igor Krawczuk and Deniz Bayazit and Axel Marmet and Syrielle Montariol and Mary-Anne Hartley and Martin Jaggi and Antoine Bosselut},
-                                year={2023},
-                                eprint={2311.16079},
-                                archivePrefix={arXiv},
-                                primaryClass={cs.CL}
-                              }
+@misc{
+  chen2023meditron70b,
+  title={MEDITRON-70B: Scaling Medical Pretraining for Large Language Models},
+  author={Zeming Chen and Alejandro Hernández-Cano and Angelika Romanou and Antoine Bonnet and Kyle Matoba and Francesco Salvi and Matteo Pagliardini and Simin Fan and Andreas Köpf and Amirkeivan Mohtashami and Alexandre Sallinen and Alireza Sakhaeirad and Vinitra Swamy and Igor Krawczuk and Deniz Bayazit and Axel Marmet and Syrielle Montariol and Mary-Anne Hartley and Martin Jaggi and Antoine Bosselut},
+  year={2023},
+  eprint={2311.16079},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}
 
-                              @software{
-                                epfmedtrn,
-                                author = {Zeming Chen and Alejandro Hernández-Cano and Angelika Romanou and Antoine Bonnet and Kyle Matoba and Francesco Salvi and Matteo Pagliardini and Simin Fan and Andreas Köpf and Amirkeivan Mohtashami and Alexandre Sallinen and Alireza Sakhaeirad and Vinitra Swamy and Igor Krawczuk and Deniz Bayazit and Axel Marmet and Syrielle Montariol and Mary-Anne Hartley and Martin Jaggi and Antoine Bosselut},
-                                title = {MediTron-70B: Scaling Medical Pretraining for Large Language Models},
-                                month = November,
-                                year = 2023,
-                                url = {https://github.com/epfLLM/meditron}
-                              }
+@software{
+  epfmedtrn,
+  author = {Zeming Chen and Alejandro Hernández-Cano and Angelika Romanou and Antoine Bonnet and Kyle Matoba and Francesco Salvi and Matteo Pagliardini and Simin Fan and Andreas Köpf and Amirkeivan Mohtashami and Alexandre Sallinen and Alireza Sakhaeirad and Vinitra Swamy and Igor Krawczuk and Deniz Bayazit and Axel Marmet and Syrielle Montariol and Mary-Anne Hartley and Martin Jaggi and Antoine Bosselut},
+  title = {MediTron-70B: Scaling Medical Pretraining for Large Language Models},
+  month = November,
+  year = 2023,
+  url = {https://github.com/epfLLM/meditron}
+}
                           </code>
                         </pre>
                       </div>
@@ -554,50 +557,7 @@
 
         <div class="content has-text-justified">
           <p>
-            The trained <span class="dmethod">4M</span> models can be used to generate any modality from any combination
-            of other modalities, and are able to perform prediction from partial inputs.
-            When predicting multiple modalities from one, rather than predicting each individually, <span class="dmethod">4M</span>
-            can be used to predict them one-by-one, always looping fully generated modalities back into the input and conditioning
-            the generation of subsequent modalities on them. The consequence is that all training modalities can
-            be predicted in a self-consistent manner. Please see the animation below for an illustration on how multimodal
-            chained generation is performed with <span class="dmethod">4M</span>.
           </p>
-        </div>
-
-        <div class="hero-body">
-          <div class="field has-addons is-pulled-right" id="play-controls"
-               title="Hint: Right click the video and choose 'Show All Controls' to enable more fine-grained video controls.">
-            <p class="control">
-              <button class="button is-small is-rounded" onclick="playPauseVideo('chainGenVideo')">
-                <span class="icon is-small">
-                  &nbsp;<i class="fa fa-play"></i>&nbsp;<i class="fa fa-pause"></i>&nbsp;
-                </span>
-              </button>
-            </p>
-            <p class="control">
-              <button class="button is-small is-rounded" onclick="restartVideo('chainGenVideo')">
-                <span class="icon is-small">
-                  <i class="fas fa-redo"></i>
-                </span>
-                <span>Restart animation</span>
-              </button>
-            </p>
-          </div>
-          <video id="chainGenVideo" height="100%" width="100%" preload="metadata"
-                 title="Hint: Right click the video and choose 'Show All Controls' to enable more fine-grained video controls.">
-            <source src="https://storage.googleapis.com/four_m_site/videos/4M_chained_generation.mp4#t=32.5"
-                    type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            This simplified example illustrates the generation of a
-            full RGB image from a partial RGB and bounding box input using the MaskGIT decoding scheme,
-            followed by autoregressive generation of a caption. Note that through chaining (i.e. using
-            fully generated modalities as conditioning when generating subsequent modalities), we can
-            predict multiple modalities in a self-consistent manner. This is in contrast to independently
-            generating each modality from the original conditioning, where each generated output is
-            consistent with the <em>input</em> but not necessarily with <em>other outputs</em>.
-            Generated tokens can be turned back into images, text, and other modalities, using the detokenizers.
-          </h2>
         </div>
 
       </div>
@@ -605,24 +565,244 @@
   </div>
 </section> 
 
-<section class="section" id="training">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Pre-Training</h2>
-    <div class="content has-text-justified">
-      <p>
-        
-      </p>
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Meditron data mixture -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <a class="anchor" id="data_mixture"></a>
+        <h2 class="title is-3"><span class="dmethod">MEDITRON</span> Pre-Training Framework</h2>
+
+      </div>
     </div>
   </div>
 </section> 
 
-<section class="section" id="evaluation">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Evaluation</h2>
-    <div class="content has-text-justified">
-      <p>
-        
-      </p>
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Meditron data mixture -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <a class="anchor" id="data_mixture"></a>
+        <h2 class="title is-3"><span class="dmethod">MEDITRON</span> Evaluation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            
+          </p>
+        </div>
+
+        <a class="anchor" id="training"></a>
+        <h2 class="title is-4">Pretrained Model Evaluation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+          </p>
+        </div>
+
+        <a class="anchor" id="chained-generation"></a>
+        <h2 class="title is-4">Finetuned Model Evaluation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            The following table shows the main results of <span class="dmethod">MEDITRON</span> downstream medical task performance against other best-performing open-
+            source medical models measured by accuracy. Our models (<span class="dmethod">MEDITRON-7B</span> and <span class="dmethod">MEDITRON-70B</span>),
+            the Llama-2 models (7B and 70B), and PMC-Llama-7B are individually finetuned on PubMedQA,
+            MedMCQA, and MedQA training sets. The baselines with ∗, i.e., Mistral-7B (instruct version),
+            Zephyr-7B-β, Med42-70B, and Clinical-Camel-70B are instruction-tuned, so we do not perform
+            further finetuning on the training sets and use the out-of-box model for inference. The inference modes
+            consist of (1) top-token selection based on probability, (2) zero-shot chain-of-thought prompting, and
+            (3) self-consistency chain-of-thought prompting (5 branches with 0.8 temperature). According to
+            Tian et al. (2023), the passing score for humans on MedQA is 60.0
+          </p>
+        </div>
+
+        <div class="table-container">
+          <table class="table is-hoverable table-row-active-background-color=hsl(0%, 100%, 41%)" align="center">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="has-text-centered">Accuracy(↑)</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <thead>
+              <tr>
+                <th><span class="dmethod">Model</span></th>
+                <th class="has-text-centered">MMLU-Medical</th>
+                <th class="has-text-centered">PubMedQA</th>
+                <th class="has-text-centered">MedMCQA</th>
+                <th class="has-text-centered">MedQA</th>
+                <th class="has-text-centered">MedQA-4-Option</th>
+                <th class="has-text-centered">Avg</th>
+              </tr>
+            </thead>
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th class="has-text-centered" colspan="3"><span class="dmethod">Top Token Selection</span></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Mistral-7B</td>
+                <td class="has-text-centered">55.8</th>
+                <td class="has-text-centered">17.8</td>
+                <td class="has-text-centered">40.2</td>
+                <td class="has-text-centered">32.4</td>
+                <td class="has-text-centered">41.1</td>
+                <td class="has-text-centered">37.5</td>
+              </tr>
+              <tr>
+                <th>Zephyr-7B-β</td>
+                <td class="has-text-centered">63.3</th>
+                <td class="has-text-centered">46.0</td>
+                <td class="has-text-centered">43.0</td>
+                <td class="has-text-centered">42.8</td>
+                <td class="has-text-centered">48.5</td>
+                <td class="has-text-centered">48.7</td>
+              </tr>
+              <tr>
+                <th>PMC-Llama-7B</th>
+                <td class="has-text-centered">59.7</td>
+                <td class="has-text-centered">59.2</td>
+                <td class="has-text-centered">57.6</td>
+                <td class="has-text-centered">42.4</td>
+                <td class="has-text-centered">49.2</td>
+                <td class="has-text-centered">53.6</td>
+              </tr>
+              <tr>
+                <th>Llama-2-7B</td>
+                <td class="has-text-centered">56.3</th>
+                <td class="has-text-centered">61.8</td>
+                <td class="has-text-centered">54.4</td>
+                <td class="has-text-centered">44.0</td>
+                <td class="has-text-centered">49.6</td>
+                <td class="has-text-centered">53.2</td>
+              </tr>
+              <tr class="is-selected">
+                <th><span class="dmethod">MEDITRON-7B</span></td>
+                <td class="has-text-centered">55.6</td> &  &  &  &  & \underline{} \\
+                <td class="has-text-centered">74.4</td>
+                <td class="has-text-centered">59.2</td>
+                <td class="has-text-centered">47.9</td>
+                <td class="has-text-centered">52.0</td>
+                <td class="has-text-centered"><u>57.5</u></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td class="has-text-centered"></td>
+                <td class="has-text-centered"></td>
+                <td class="has-text-centered"></td>
+                <td class="has-text-centered"></td>
+                <td class="has-text-centered"></td>
+                <td class="has-text-centered"></td>
+              </tr>
+              <tr>
+                <th>Clinical-Camel-70B</th>
+                <td class="has-text-centered">65.7</td> 
+                <td class="has-text-centered">67.0 </td>
+                <td class="has-text-centered">46.7</td>
+                <td class="has-text-centered">50.8</td>
+                <td class="has-text-centered">56.8</td>
+                <td class="has-text-centered">57.4</td>
+              </tr>
+              <tr>
+                <th>Med42-70B</th>
+                <td class="has-text-centered">74.5</td>
+                <td class="has-text-centered">61.2</td>
+                <td class="has-text-centered">59.2</td>
+                <td class="has-text-centered">59.1</td>
+                <td class="has-text-centered">63.9</td>
+                <td class="has-text-centered">63.6</td>
+              </tr>
+              <tr>
+                <th>Llama-2-70B</th>
+                <td class="has-text-centered">74.7</td>
+                <td class="has-text-centered">78.0</td>
+                <td class="has-text-centered">62.7</td>
+                <td class="has-text-centered">59.2</td>
+                <td class="has-text-centered">61.3</td>
+                <td class="has-text-centered">67.2</td>
+              </tr>
+              <tr class="is-selected">
+                <th><span class="dmethod">MEDITRON-70B</span></td>
+                <td class="has-text-centered">73.6</td>
+                <td class="has-text-centered">80.0</td>
+                <td class="has-text-centered">65.1</td>
+                <td class="has-text-centered">60.7</td>
+                <td class="has-text-centered">65.4</td>
+                <td class="has-text-centered"><u>69.0</u></td>
+              </tr>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th class="has-text-centered"><span class="dmethod">Chain-of-thought</span></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+              <tr>
+                <th>Llama-2-70B</th>
+                <td class="has-text-centered">76.7</td>
+                <td class="has-text-centered">79.8</td>
+                <td class="has-text-centered">62.1</td>
+                <td class="has-text-centered">60.8</td>
+                <td class="has-text-centered">63.9</td>
+                <td class="has-text-centered">68.7</td>
+              </tr>
+              <tr class="is-selected">
+                <th><span class="dmethod">MEDITRON-70B</span></td>
+                <td class="has-text-centered">74.9</td> 
+                <td class="has-text-centered">81.0</td>
+                <td class="has-text-centered">63.2</td>
+                <td class="has-text-centered">61.5</td>
+                <td class="has-text-centered">67.8</td>
+                <td class="has-text-centered"><u>69.7</u></td>
+              </tr>
+              <tr>
+                <th></th>
+                <th></th>
+                <th class="has-text-centered" colspan="3"><span class="dmethod">Self-consistency Chain-of-thought</span></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>              <tr>
+                <th>Llama-2-70B</th>
+                <td class="has-text-centered"><b>77.9</b></td>
+                <td class="has-text-centered">80.0</td>
+                <td class="has-text-centered">62.6</td>
+                <td class="has-text-centered">61.5</td>
+                <td class="has-text-centered">63.8</td>
+                <td class="has-text-centered">69.2</td>
+              </tr>
+              <tr class="is-selected">
+                <th><span class="dmethod">MEDITRON-70B</span></td>
+                <td class="has-text-centered">77.6</td>
+                <td class="has-text-centered"><b>81.6</b></td>
+                <td class="has-text-centered"><b>66.0</b></td>
+                <td class="has-text-centered"><b>64.4</b></td>
+                <td class="has-text-centered"><b>70.2</b></td>
+                <td class="has-text-centered"><b>72.0</b></td>
+              </tr>
+              </tbody>
+            </table>
+        </div>
+
+      </div>
     </div>
   </div>
 </section> 
