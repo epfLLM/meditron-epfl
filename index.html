@@ -593,12 +593,18 @@
             The following table shows the main results of <span class="dmethod">MEDITRON</span> downstream medical task performance against other best-performing open-
             source medical models measured by accuracy. Our models (<span class="dmethod">MEDITRON-7B</span> and <span class="dmethod">MEDITRON-70B</span>),
             the Llama-2 models (7B and 70B), and PMC-Llama-7B are individually finetuned on PubMedQA,
-            MedMCQA, and MedQA training sets. The baselines with ∗, i.e., Mistral-7B (instruct version),
+            MedMCQA, and MedQA training sets. 
+            <br><br>
+            The baselines with ∗, i.e., Mistral-7B (instruct version),
             Zephyr-7B-β, Med42-70B, and Clinical-Camel-70B are instruction-tuned, so we do not perform
             further finetuning on the training sets and use the out-of-box model for inference. The inference modes
-            consist of (1) top-token selection based on probability, (2) zero-shot chain-of-thought prompting, and
-            (3) self-consistency chain-of-thought prompting (5 branches with 0.8 temperature). According to
-            Tian et al. (2023), the passing score for humans on MedQA is 60.0
+            consist of:
+            <ol type="I"> 
+              <li>top-token selection based on probability</li>
+              <li>zero-shot chain-of-thought prompting</li>
+              <li>self-consistency chain-of-thought prompting (5 branches with 0.8 temperature)</li>
+            </ol>
+            According to <a href="https://arxiv.org/abs/2306.10070">Tian et al. (2023)</a>, the passing score for humans on MedQA is 60.0.
           </p>
         </div>
 
