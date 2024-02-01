@@ -345,7 +345,7 @@
               <br>
 
               <p>
-                <span class="dmethod">MEDITRON</span>  is a suite of open-source medical Large Language Models (70B & 7B)
+                <span class="dmethod">MEDITRON</span> is a suite of open-source medical Large Language Models (70B & 7B)
                 adapted to the medical domain from Llama-2
                 through continued pretraining on a comprehensively curated medical corpus,
                 including selected PubMed articles, abstracts, and internationally-recognized medical guidelines.
@@ -513,16 +513,16 @@
 
         <div class="content has-text-justified">
           <p>
-            <span class="dmethod">MEDITRON</span>'s pre-training data is consist of three parts:
-            (1) open-access PubMed-Central papers and PubMed abstracts,
+            <span class="dmethod">MEDITRON</span>'s continued pre-training data mixture is consist of three parts:
+            (1) open-access PubMed & PubMed-Central papers and abstracts,
             (2) internationally-recognized clinical guidelines and
-            (3) generalist text data from RedPajama.
-
+            (3) generalist text data from the RedPajama general pre-training data mixture.
+            The pre-training data mixture contatins a total number of 48.1B tokens.
           </p>
         </div>
 
         <a class="anchor" id="training"></a>
-        <h2 class="title is-4"><span class="dmethod">4M</span> training</h2>
+        <h2 class="title is-4">Data Collection</h2>
 
         <div class="content has-text-justified">
           <p>
@@ -540,17 +540,17 @@
             <img src="static/images/meditron_data.png" alt="meditron data overview">
           </figure>
           <br>
-          <h2 class="subtitle has-text-centered">
-            (Left): <span class="dmethod">4M</span> is a framework for training multimodal and multitask models that
-            operate on tokenized versions of multiple image-like modalities (such as RGB, depth, etc.)
-            and sequence modalities (such as captions and bounding boxes). (Right): The <span class="dmethod">4M</span> training
-            objective consists of training a Transformer encoder-decoder to predict a randomly selected
-            subset of tokens, which is sampled from all modalities, based on another random subset of tokens.
+          <h2 class="subtitle has-text-justified">
+            <span class="dmethod">MEDITRON</span>'s pre-training corpus GAP-REPLAY.
+            (1): Clinical Guidelines: 46K clinical practice guidelines from various
+            healthcare-related sources (2) PubMed Paper & Abstracts: 5M full-text open-access papers from
+            PubMed & PubMed Central; public available abstracts from 16.1M closed-access PubMed and PubMed Central papers.
+            (3): Replay dataset: general domain text data sampled from RedPajama to compose 1% of the entire corpus.
           </h2>
         </div>
 
         <a class="anchor" id="chained-generation"></a>
-        <h2 class="title is-4">Multimodal chained generation</h2>
+        <h2 class="title is-4">Data Preprocessing</h2>
 
         <div class="content has-text-justified">
           <p>
