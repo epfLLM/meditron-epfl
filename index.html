@@ -178,7 +178,7 @@
         <img class="center-block org-banner" src="static/images/idiap-logo.png">
     </a>
     <a href="https://open-assistant.io/bye" target="blank" class="ext-link">
-      <img class="center-block org-banner" src="static/images/oa-logo.svg" width="100%">
+      <img class="center-block org-banner" src="static/images/oa-logo.svg">
   </a>
     <a href="https://www.yalemedicine.org/" target="_blank" rel="external">
         <img class="center-block org-banner" src="static/images/yale-logo.png">
@@ -525,22 +525,34 @@
           </p>
         </div>
 
-        <a class="anchor" id="training"></a>
+        <a class="anchor" id="data-collection"></a>
         <h2 class="title is-4">Data Collection</h2>
 
         <div class="content has-text-justified">
           <p>
-            By tokenizing modalities into sequences of discrete tokens, we can train a single unified
-            Transformer encoder-decoder on a diverse set of modalities, including text, images,
-            geometric, and semantic modalities, as well as neural network feature maps.
-            <span class="dmethod">4M</span> is trained by mapping one random subset of tokens to another.
-            Please see the animated visualization below for an overview of the <span class="dmethod">4M</span>
-            training scheme.
+            For the medical papers, we include all the open access PubMed papers from the <a target="_blank" href="https://github.com/allenai/s2orc">S2ORC</a> project provided by AI2.
+            This includes 4.5M full-text papers from the PubMed Central Open Access Subset.
+            In addition, we include 400k open-access PubMed papers that are not found in the PubMed Central archive.
+            This gives us a total of 4.9M medical papers. We also include around 15.7 million abstracts from PubMed papers whose full text are not publicly available.
+            <br><br>
+            For the clinical guidelines, we select based on pragmatic selection criteria.
+            We target those that are (1) open-access, (2) systematically formatted with homogenous textual structure
+            (i.e., in a format such that automated processes could be deployed without excessive risk of misaligning textual sequences),
+            (3) in the language predominantly represented by the pre-training corpus of Llama (i.e., English), and
+            (4) covering a breadth of medical sub-domains, audiences (clinician, nurse, patient), and resource settings (high, low, and humanitarian response settings).
+
+            The guideline covers a broad range of contexts. For instance, the geographic scope ranges from global (WHO) to national (CDC, NICE) and regional (Ontario, Melbourne) to institutional (ICRC, Mayo Clinic).
+            The corpus also represents health care concerns from high- (Ontario, Melbourne), low- (WHO), and volatile- (ICRC) resource settings.
+            The peer review processes also ranged from UN bodies (WHO), institutional review boards (ICRC), professional associations (AAFP) to publicly crowdsourced knowledge bases (WikiDoc).
+            <br><br>
+            We include a subset of general-domain text. Because we are injecting a large amount of medical knowledge into the model, part of its general knowledge from the original pre-training can be overwritten.
+            The general-domain text serves as experience replay to help the model recover some general knowledge during the continued pre-training process.
+            We sample tokens from the RedPajama corpus which consists of different types of general-domain text such as wiki, papers, books, web, and code.
           </p>
         </div>
 
         <div class="hero-body">
-          <figure class="image mod-figure">
+          <figure class="image mod-figure" style="padding: 0% 10%;">
             <img src="static/images/meditron_data.png" alt="meditron data overview">
           </figure>
           <br>
@@ -553,34 +565,39 @@
           </h2>
         </div>
 
-        <a class="anchor" id="chained-generation"></a>
+        <a class="anchor" id="data-preprocess"></a>
         <h2 class="title is-4">Data Preprocessing</h2>
 
         <div class="content has-text-justified">
           <p>
+            To preprocess the papers and abstracts, we mainly followed Galactica (<a target="_blank" href="https://arxiv.org/abs/2211.09085">Taylor et al., 2022</a>),
+            a prior large mode that were also trained on academic papers.
+            Specifically, we removed metadata information and references which don’t contribute to the medical knowledge, and only kept the main text body.
+            Tables and figures with crrupted format were also removed.
+            For any text that support the main text such as in-line citations, in text figures and table references and formulas, we wrap them with special tokens.
+            Finally we remove any URLs and filter out non-English content to keep the training data consistent with the majority of Llama-2’s original pretraining text.
+
+            For the clincial guidelines, we excluded irrelevant or repetitive content that did not contribute to the textual content,
+            such as URLs, references, figures, table delimiters, and ill-formatted characters.
+            Additionally, the text was standardized to a unified format with indicated section headers, homogenous space separating paragraphs, and normalized lists.
+            Finally, all samples were deduplicated using title matching, and articles that were too short or not in English were filtered out.
           </p>
+        </div>
+
+        <div class="hero-body">
+          <figure class="image mod-figure" style="padding: 0% 15%;">
+            <img src="static/images/gap-replay.png" alt="meditron data details">
+          </figure>
+          <br>
+          <h2 class="subtitle has-text-justified">
+            GAP-Replay data mixture statistics. The size of both training and validation sets of the GAP-REPLAY pre-training mixture.
+            For each set, we give the total number of samples and the total number of tokens belonging to each dataset.
+            The portion of each dataset allocated to the validation set (relative to the training set) is given as a percentage.
+          </h2>
         </div>
 
       </div>
     </div>
-    <!--/ 4M training and generation. -->
-
-    <div class="hero-body">
-      <figure class="image mod-figure">
-        <img src="static/images/pretrain.png" alt="meditron data overview">
-      </figure>
-      <br>
-      <h2 class="subtitle has-text-justified">
-        <span class="dmethod">MEDITRON</span>'s pre-training corpus GAP-REPLAY.
-        (1): Clinical Guidelines: 46K clinical practice guidelines from various
-        healthcare-related sources (2) PubMed Paper & Abstracts: 5M full-text open-access papers from
-        PubMed & PubMed Central; public available abstracts from 16.1M closed-access PubMed and PubMed Central papers.
-        (3): Replay dataset: general domain text data sampled from RedPajama to compose 1% of the entire corpus.
-      </h2>
-    </div>
-
-
-
   </div>
 </section>
 
@@ -592,6 +609,30 @@
       <div class="column is-full-width">
         <a class="anchor" id="pretraining"></a>
         <h2 class="title is-3"><span class="dmethod">MEDITRON</span> Pre-Training Framework</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We developed the <a target="_blank" href="https://github.com/epfLLM/Megatron-LLM">Megatron-LLM</a> distributed training library, which extends Nvidia’s <a target="_blank", href="https://github.com/NVIDIA/Megatron-LM">Megatron-LM</a> to support the training of three popular open-source LLMs that have recently been released: Llama, Falcon, and Llama-2.
+            We use it to pretrain and finetune all <span class="dmethod">MEDITRON</span> models.
+            The library supports several forms of complementary parallelism for distributed training, including Data Parallelism (DP – different GPUs process different subsets of the batches),
+            Pipeline Parallelism (PP – different GPUs process different layers), Tensor Parallelism (TP – different GPUs process different subtensors for matrix multiplication).
+            The library also includes activation recomputation to reduce memory usage at the expense of increased computation times,
+            sequence parallelism to exploit further the coordinate-wise independence of batch norm and dropout operations, fused operations, and other modern primitives to help increase training throughput.
+            We also added support for FlashAttention (<a target="_blank" href="https://arxiv.org/abs/2205.14135">Dao et al., 2022</a>) and FlashAttention-2 (<a target="_blank", href="https://arxiv.org/abs/2307.08691">Dao, 2023</a>) for more efficient inference and long-context decoding.
+            <br><br>
+            Below, we show <span class="dmethod">MEDITRON</span>-70B's learning dynamic of the pre-training run.
+          </p>
+        </div>
+
+        <div class="hero-body">
+          <figure class="image mod-figure">
+            <img src="static/images/pretrain.png" alt="meditron data overview">
+          </figure>
+          <br>
+          <h2 class="subtitle has-text-justified">
+            Training and validation loss during continued pretraining of the <span class="dmethod">MEDITRON</span>-70B model across the number of processed tokens during the pretraining run.
+          </h2>
+        </div>
 
       </div>
     </div>
@@ -616,14 +657,13 @@
             <br><br>
             The baselines with ∗, i.e., Mistral-7B (instruct version),
             Zephyr-7B-β, Med42-70B, and Clinical-Camel-70B are instruction-tuned, so we do not perform
-            further finetuning on the training sets and use the out-of-box model for inference. The inference modes
-            consist of:
+            further finetuning on the training sets and use the out-of-box model for inference. We use three inference modes for evaluation:
             <ol type="I">
-              <li>top-token selection based on probability</li>
-              <li>zero-shot chain-of-thought prompting</li>
-              <li>self-consistency chain-of-thought prompting (5 branches with 0.8 temperature)</li>
+              <li>Top-token selection based on probability</li>
+              <li>Chain-of-thought prompting</li>
+              <li>Self-Consistency Chain-of-thought prompting (5 branches with 0.8 temperature)</li>
             </ol>
-            According to <a href="https://arxiv.org/abs/2306.10070">Tian et al. (2023)</a>, the passing score for humans on MedQA is 60.0.
+            According to <a href="https://arxiv.org/abs/2306.10070">Tian et al. (2023)</a>, the passing score for humans on USMLE-MedQA is 60.0.
           </p>
         </div>
 
