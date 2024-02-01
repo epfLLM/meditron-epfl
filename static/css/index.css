@@ -9,6 +9,22 @@
   background: linear-gradient(to right, #DFE7FD, #D3F8E2);
 } */
 
+#org-banners {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.org-banner {
+  /* margin: 5px; */
+  max-width: 100%;
+  height: 6em;
+  margin: 10px;
+  padding: 10px;
+}
+
 .responsive-iframe {
   position: relative;
   width: 100%;

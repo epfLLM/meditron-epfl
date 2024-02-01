@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="description"
         content="MEDITRON-70B: Scaling Medical Pretraining for Large Language Models">
-  <meta name="keywords" content="Meditron, Foundation Model, Generative Modeling, Generative AI">
+  <meta name="keywords" content="Meditron, Foundation Model, Medical LLM, Generative AI, AI4Health">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MEDITRON-70B</title>
 
@@ -28,7 +28,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.ico">
+  <link rel="icon" href="./static/images/meditron_LOGO_monogram_transparent.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -98,24 +98,29 @@
 
     <div class="container is-max-desktop headline-container">
 
-      <div class="columns is-centered">
-
-        <div class="columns has-text-left" style="margin-right: 10%;">
-          <div class="title-container">
-            <img src="static/images/meditron_LOGO_monogram_transparent.png" class="logo" width="100" alt="4M logo"/>
-            <h1 id="scrollingHead" class="title is-1"><b>MEDITRON-70B:</b><br><span class="publication-title">Scaling Medical Pretraining<br>for Large Language Models</span></h1>
+      <div class="columns is-centered" style="margin-top: 2%;">
+        <div class="columns has-text-left">
+          <div class="title-container" style="padding-left: 3%;">
+            <img src="static/images/meditron_LOGO_monogram_transparent.png" class="logo" width="7%" alt="Meditron logo"/>
+            <h1 id="scrollingHead" class="title is-1"><b>MEDITRON-70B:</b></h1>
           </div>
         </div>
-        <div class="logo-container">
-          <img src="static/images/epfl-logo.png" class="logo" width="140" alt="EPFL logo"/>
-        </div>
+        <!-- <div class="logo-container">
+          <img src="static/images/epfl-logo.png" class="logo" width="20%" alt="EPFL logo"/>
+        </div> -->
+        <br>
+      </div>
 
+      <div class="columns has-text-left">
+        <div class="title-container" style="padding: 1%;">
+          <h1 id="scrollingHead" class="title is-1"><span class="publication-title">Scaling Medical Pretraining for Large Language Models</span></h1>
+        </div>
       </div>
 
       <div class="columns is-centered">
-        <div class="column has-text-left banner">
+        <div class="column has-text-left banner" style="padding: 1%;">
           <blockquote>
-            A set of new open-access LLMs adapted to the medical domain,<br>achieving new SoTA open-source performance on common medical benchmarks.
+            A set of new open-access LLMs adapted to the medical domain, achieving new SoTA open-source performance on common medical benchmarks.
           </blockquote>
         </div>
       </div>
@@ -166,6 +171,23 @@
     </div>
 
 
+  </div>
+</section>
+
+<section class="hero is-light">
+  <div class="section" id="org-banners" style="display:flex;">
+    <a href="https://www.epfl.ch/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/epfl-logo.png">
+    </a>
+    <a href="https://www.idiap.ch/en/" target="blank" class="ext-link">
+        <img class="center-block org-banner" src="static/images/idiap-logo.png">
+    </a>
+    <a href="https://open-assistant.io/bye" target="blank" class="ext-link">
+      <img class="center-block org-banner" src="static/images/oa-logo.svg" width="100%">
+  </a>
+    <a href="https://www.yalemedicine.org/" target="_blank" rel="external">
+        <img class="center-block org-banner" src="static/images/yale-logo.png">
+    </a>
   </div>
 </section>
 
@@ -437,23 +459,23 @@
 </section>
 
 
-<!-- 4M method description, tokenization & modalities. -->
+<!-- Meditron data mixture collection, preprocessing, and details. -->
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- 4M training and generation. -->
+    <!-- Meditron data mixture -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <a class="anchor" id="data_mixture"></a>
-        <h2 class="title is-3"><span class="dmethod">4M</span> method overview</h2>
+        <h2 class="title is-3"><span class="dmethod">MEDITRON</span> pre-training data mixture overview</h2>
 
         <div class="content has-text-justified">
           <p>
-            <span class="dmethod">4M</span> is a multimodal and multitask training scheme,
-            enabling the training of versatile <i>any-to-any</i> models, i.e. capable of predicting / generating
-            any modality from any subset of other modalities.
-            <span class="dmethod">4M</span> models are capable of performing a wide variety of vision
-            tasks out-of-the-box, and excel when fine-tuned to novel downstream tasks.
+            <span class="dmethod">MEDITRON</span>'s pre-training data is consist of three parts:
+            (1) open-access PubMed-Central papers and PubMed abstracts,
+            (2) internationally-recognized clinical guidelines and
+            (3) generalist text data from RedPajama.
+
           </p>
         </div>
 
@@ -472,29 +494,10 @@
         </div>
 
         <div class="hero-body">
-          <div class="field has-addons is-pulled-right" id="play-controls"
-               title="Hint: Right click the video and choose 'Show All Controls' to enable more fine-grained video controls.">
-            <p class="control">
-              <button class="button is-small is-rounded" onclick="playPauseVideo('pullFigVideo')">
-                <span class="icon is-small">
-                  &nbsp;<i class="fa fa-play"></i>&nbsp;<i class="fa fa-pause"></i>&nbsp;
-                </span>
-              </button>
-            </p>
-            <p class="control">
-              <button class="button is-small is-rounded" onclick="restartVideo('pullFigVideo')">
-                <span class="icon is-small">
-                  <i class="fas fa-redo"></i>
-                </span>
-                <span>Restart animation</span>
-              </button>
-            </p>
-          </div>
-          <video id="pullFigVideo" height="100%" width="100%" preload="metadata"
-                 title="Hint: Right click the video and choose 'Show All Controls' to enable more fine-grained video controls.">
-            <source src="https://storage.googleapis.com/four_m_site/videos/4M_method_figure.mp4#t=25.9"
-                    type="video/mp4">
-          </video>
+          <figure class="image mod-figure">
+            <img src="static/images/meditron_data.png" alt="meditron data overview">
+          </figure>
+          <br>
           <h2 class="subtitle has-text-centered">
             (Left): <span class="dmethod">4M</span> is a framework for training multimodal and multitask models that
             operate on tokenized versions of multiple image-like modalities (such as RGB, depth, etc.)
@@ -580,6 +583,20 @@ this draft. We also thank Katie Link and Lewis Tunstall from HuggingFace for the
     </div>
   </div>
 </section> -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>@misc{chen2023meditron70b,
+  title={MEDITRON-70B: Scaling Medical Pretraining for Large Language Models},
+  author={Zeming Chen and Alejandro Hernández-Cano and Angelika Romanou and Antoine Bonnet and Kyle Matoba and Francesco Salvi and Matteo Pagliardini and Simin Fan and Andreas Köpf and Amirkeivan Mohtashami and Alexandre Sallinen and Alireza Sakhaeirad and Vinitra Swamy and Igor Krawczuk and Deniz Bayazit and Axel Marmet and Syrielle Montariol and Mary-Anne Hartley and Martin Jaggi and Antoine Bosselut},
+  year={2023},
+  eprint={2311.16079},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL}
+}</code></pre>
+  </div>
+</section>
 
 <hr>
 
