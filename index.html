@@ -74,13 +74,13 @@
           </a>
 
           <div class="navbar-dropdown is-boxed">
-            <a class="navbar-item" href="#any-to-any">
+            <a class="navbar-item" href="#data_mixture">
               Data Mixture
             </a>
-            <a class="navbar-item" href="#rgb-to-all">
+            <a class="navbar-item" href="#pretraining">
               Pre-training
             </a>
-            <a class="navbar-item" href="#rgb-to-all">
+            <a class="navbar-item" href="#evaluation">
               Evaluation
             </a>
 
@@ -478,7 +478,7 @@
           </div>
 
           <div class="tile is-parent">
-            <a href="#retrieval" class="tile is-child box">
+            <a href="#pretraining" class="tile is-child box">
               <p class="title is-4">Pre-Training</p>
               <p>
                  Find out how <span class="dmethod">MEDITRON</span> scales up the continued pre-training in the medical domain for LLMs.
@@ -487,7 +487,7 @@
           </div>
 
           <div class="tile is-parent">
-            <a href="#transfers-ablations" class="tile is-child box">
+            <a href="#evaluation" class="tile is-child box">
               <p class="title is-4">Evaluation</p>
               <p>
                 Explore key achievements made by <span class="dmethod">MEDITRON</span>, compared to other state-of-the-art LLMs.
@@ -571,7 +571,7 @@
     <!-- Meditron data mixture -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <a class="anchor" id="data_mixture"></a>
+        <a class="anchor" id="pretraining"></a>
         <h2 class="title is-3"><span class="dmethod">MEDITRON</span> Pre-Training Framework</h2>
 
       </div>
@@ -585,25 +585,8 @@
     <!-- Meditron data mixture -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <a class="anchor" id="data_mixture"></a>
+        <a class="anchor" id="evaluation"></a>
         <h2 class="title is-3"><span class="dmethod">MEDITRON</span> Evaluation</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            
-          </p>
-        </div>
-
-        <a class="anchor" id="training"></a>
-        <h2 class="title is-4">Pretrained Model Evaluation</h2>
-
-        <div class="content has-text-justified">
-          <p>
-          </p>
-        </div>
-
-        <a class="anchor" id="chained-generation"></a>
-        <h2 class="title is-4">Finetuned Model Evaluation</h2>
 
         <div class="content has-text-justified">
           <p>
@@ -650,8 +633,6 @@
                 <th class="has-text-centered" colspan="3"><span class="dmethod">Top Token Selection</span></th>
                 <th></th>
                 <th></th>
-                <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -693,7 +674,7 @@
               </tr>
               <tr class="is-selected">
                 <th><span class="dmethod">MEDITRON-7B</span></td>
-                <td class="has-text-centered">55.6</td> &  &  &  &  & \underline{} \\
+                <td class="has-text-centered">55.6</td>
                 <td class="has-text-centered">74.4</td>
                 <td class="has-text-centered">59.2</td>
                 <td class="has-text-centered">47.9</td>
@@ -701,7 +682,7 @@
                 <td class="has-text-centered"><u>57.5</u></td>
               </tr>
               <tr>
-                <th></th>
+                <th class="has-text-centered"></th>
                 <td class="has-text-centered"></td>
                 <td class="has-text-centered"></td>
                 <td class="has-text-centered"></td>
@@ -778,9 +759,8 @@
                 <th class="has-text-centered" colspan="3"><span class="dmethod">Self-consistency Chain-of-thought</span></th>
                 <th></th>
                 <th></th>
-                <th></th>
-                <th></th>
-              </tr>              <tr>
+              </tr>              
+              <tr>
                 <th>Llama-2-70B</th>
                 <td class="has-text-centered"><b>77.9</b></td>
                 <td class="has-text-centered">80.0</td>
