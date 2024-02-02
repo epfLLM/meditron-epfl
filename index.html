@@ -18,15 +18,13 @@
     gtag('config', 'G-GBVBTHC8QT');
   </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/meditron_LOGO_monogram_transparent.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
@@ -41,7 +39,6 @@
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://unpkg.com/crossfilter@1.3.11/crossfilter.js"></script>
   <script src="./static/js/metadata_designer.js" defer></script>
-
   <script src="./static/js/index.js"></script>
 
 </head>
@@ -82,6 +79,12 @@
             </a>
             <a class="navbar-item" href="#evaluation">
               Evaluation
+            </a>
+            <a class="navbar-item" href="#qualitative">
+              Qualitative Examples
+            </a>
+            <a class="navbar-item" href="#outlook">
+              Limitation & Outlook
             </a>
 
           </div>
@@ -465,7 +468,7 @@
     </div>
 
     <!-- Overview. -->
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered has-text-centered" style="display:flex;">
       <div class="column is-full">
         <h2 class="title is-3">Overview</h2>
 
@@ -499,11 +502,19 @@
             </a>
           </div>
 
+          <div class="tile is-parent">
+            <a href="#qualitative" class="tile is-child box">
+              <p class="title is-4">Qualitative Examples</p>
+              <p>
+                Take a look at qualitative responses from <span class="dmethod">MEDITRON</span>, on Risk & Bias questions made by Doctors.
+              </p>
+            </a>
+          </div>
+
         </div>
 
       </div>
     </div>
-    <!--/ Overview. -->
 
   </div>
 </section>
@@ -553,7 +564,7 @@
           </p>
         </div>
 
-        <div class="hero-body">
+        <!-- <div class="hero-body"> -->
           <figure class="image mod-figure" style="padding: 0% 10%;">
             <img src="static/images/meditron_data.png" alt="meditron data overview">
           </figure>
@@ -565,7 +576,7 @@
             PubMed & PubMed Central; public available abstracts from 16.1M closed-access papers (PubMed & PubMed Central).
             (3): Replay subset: general domain text from RedPajama to compose 1% of the corpus.
           </h2>
-        </div>
+        <!-- </div> -->
 
         <a class="anchor" id="data-preprocess"></a>
         <h2 class="title is-4">Data Preprocessing</h2>
@@ -586,7 +597,7 @@
           </p>
         </div>
 
-        <div class="hero-body">
+        <!-- <div class="hero-body"> -->
           <figure class="image mod-figure" style="padding: 0% 15%;">
             <img src="static/images/gap-replay.png" alt="meditron data details">
           </figure>
@@ -596,7 +607,7 @@
             For each set, we give the total number of samples and the total number of tokens belonging to each dataset.
             The portion of each dataset allocated to the validation set (relative to the training set) is given as a percentage.
           </h2>
-        </div>
+        <!-- </div> -->
 
       </div>
     </div>
@@ -644,43 +655,60 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Meditron data mixture -->
+    <!-- Meditron evaluation -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <a class="anchor" id="evaluation"></a>
         <h2 class="title is-3"><span class="dmethod">MEDITRON</span> Evaluation</h2>
 
-        <div class="hero-body">
-          <figure class="image mod-figure">
-            <img src="static/images/sft.png" alt="meditron data overview">
-          </figure>
-          <br>
-          <h2 class="subtitle has-text-justified">
-            Supervised-finetuning of <span class="dmethod">MEDITRON</span>-70B model for medical reasoning tasks.
-          </h2>
-        </div>
+        <h2 class="title is-4">Medical Task Supervised Finetuning</h2>
 
         <div class="content has-text-justified">
           <p>
-            The following table shows the main results of <span class="dmethod">MEDITRON</span> downstream medical task performance against other best-performing open-
-            source medical models measured by accuracy. Our models (<span class="dmethod">MEDITRON-7B</span> and <span class="dmethod">MEDITRON-70B</span>),
-            the Llama-2 models (7B and 70B), and PMC-Llama-7B are individually finetuned on PubMedQA,
-            MedMCQA, and MedQA training sets.
-            <br><br>
-            The baselines with ∗, i.e., Mistral-7B (instruct version),
-            Zephyr-7B-β, Med42-70B, and Clinical-Camel-70B are instruction-tuned, so we do not perform
-            further finetuning on the training sets and use the out-of-box model for inference. We use three inference modes for evaluation:
+            Although pretraining have compressed a large amount of medical knowledge in the model parameters,
+            the model has not learned to access and deliver the knowledge accurately to solve downstream medical tasks.
+            That’s why supervised-finetuning is desired after pre-training to teach the model how to access its medical knowledge to solve a particular task.
+            To finetune the model, we formulate the tasks in the format of multiple choice question answering and train the models to select the correct option.
+            Through iterative improvements, the model learns to perform several medical reasoning tasks.
+          </p>
+        </div>
+
+        <figure class="image mod-figure" style="padding: 0% 5%;">
+          <img src="static/images/sft.png" alt="meditron data overview">
+        </figure><br>
+
+        <h2 class="title is-4">Comparing MEDITRON to open-access LLMs</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We evaluate the finetuned version of <span class="dmethod">MEDITRON</span>-7B & 70B on four major medical benchmarks: MMLU-Medical, PubMedQA, MedMCQA, and MedQA (4 options and 5 options).
+            (Mistral-7B, Zephyr-7B-β, Med42-70B, and Clinical-Camel-70B are instruction-tuned,
+            so no further finetuning were made). We use three inference modes for evaluation:
             <ol type="I">
               <li>Top-token selection based on probability</li>
               <li>Chain-of-thought prompting</li>
               <li>Self-Consistency Chain-of-thought prompting (5 branches with 0.8 temperature)</li>
             </ol>
-            According to <a href="https://arxiv.org/abs/2306.10070">Tian et al. (2023)</a>, the passing score for humans on USMLE-MedQA is 60.0.
+            In all three modes, <span class="dmethod">MEDITRON</span>-70B improves over all three baseline models on average.
+            Overall, with SC-CoT, <span class="dmethod">MEDITRON</span>-70B achieves the highest average accuracy (72.0%) on the benchmarks.
+            According to <a href="https://arxiv.org/abs/2306.10070">Tian et al. (2023)</a>, the passing score for humans on USMLE-MedQA is 60.0, which
+            <span class="dmethod">MEDITRON</span>-70B surpasses in all three inference modes.
           </p>
         </div>
 
         <div class="table-container">
           <table class="table is-hoverable table-row-active-background-color=hsl(0%, 100%, 41%)" align="center">
+            <!-- <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead> -->
             <thead>
               <tr>
                 <th></th>
@@ -833,7 +861,9 @@
               <tr>
                 <th></th>
                 <th></th>
-                <th class="has-text-centered" colspan="3"><span class="dmethod">Self-consistency Chain-of-thought</span></th>
+                <th class="has-text-centered" colspan="3">
+                  <span class="dmethod">Self-consistency Chain-of-thought</span>
+                </th>
                 <th></th>
                 <th></th>
               </tr>
@@ -857,10 +887,105 @@
               </tr>
               </tbody>
             </table>
+        </div><br>
+
+        <h2 class="title is-4">Comparing MEDITRON to commercial LLMs</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We also compare <span class="dmethod">MEDITRON</span>-70B's performance to commercial LLMs (GPT-3.5, GPT-4, MedPaLM-540B, and MedPaLM-2-540B).
+            <span class="dmethod">MEDITRON</span>-70B outperforms GPT-3.5 and Med-PaLM on all benchmarks.
+            On PubMedQA, <span class="dmethod">MEDITRON</span>-70B outperforms GPT-4, and is only 0.2% behind the best model, Med-PaLM-2.
+            On MedMCQA and MedQA (5-option and 4-option), <span class="dmethod">MEDITRON</span>-70B’s performance falls between Med-PaLM and the SOTA performance (GPT-4 and Med-PaLM-2).
+            Overall, <span class="dmethod">MEDITRON</span>-70B’s performance is competitive with commercial LLMs with significantly larger parameter sizes.
+          </p>
         </div>
+
+        <figure class="image mod-figure" style="padding: 0% 5%;">
+          <img src="static/images/commercial.png" alt="meditron against commercial models">
+        </figure><br>
+
+        <h2 class="title is-4">MEDITRON on TruthfulQA</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We did an initial assessment of <span class="dmethod">MEDITRON</span> models' Truthfulness on TruthfulQA (multiple choice)
+            We only focus on the categories that are relevant to the medical domain, including Health, Nutrition, Psychology, and Science.
+            For 7B models, we perform one-shot evaluations for consistent answer generation.
+            For 70B models, the evaluation is under a zero-shot setting.
+            Overall, MEDITRON demonstrates signicantly stronger truthfulness in medical subjects than baselines at both 7B and 70B scales.
+          </p>
+        </div>
+
+        <figure class="image mod-figure" style="padding: 0% 10%;">
+          <img src="static/images/truthfulqa.png" alt="meditron truthfulqa">
+        </figure>
 
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Meditron qualitative examples -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <a class="anchor" id="qualitative"></a>
+        <h2 class="title is-3"><span class="dmethod">MEDITRON</span> Qualitative Example</h2>
+
+        <h2 class="title is-4">Risk: Public Health</h2>
+        <figure class="image mod-figure" style="padding: 0% 10%;">
+          <img src="static/images/risk-public-health.png" alt="meditron public health">
+        </figure><br>
+
+        <h2 class="title is-4">Risk: Medical Ethics</h2>
+        <figure class="image mod-figure" style="padding: 0% 10%;">
+          <img src="static/images/risk-medical-ethics.png" alt="meditron medical ethics">
+        </figure><br>
+
+        <h2 class="title is-4">Bias: Racial</h2>
+        <figure class="image mod-figure" style="padding: 0% 10%;">
+          <img src="static/images/bias-racial-bias.png" alt="meditron medical ethics">
+        </figure><br>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <a class="anchor" id="outlook"></a>
+    <h2 class="title is-3 has-text-centered">Limitation & Outlook</h2>
+    <figure class="image mod-figure" style="padding: 0% 10%;">
+      <img src="static/images/outlook.png" alt="meditron future">
+    </figure>
+
+    <div class="content has-text-justified">
+      <p>
+        While <span class="dmethod">MEDITRON</span> is designed to encode medical knowledge from sources
+        of high-quality evidence, it is not yet adapted to deliver this knowledge appropriately, safely, or
+        within professional actionable constraints.
+        Despite <span class="dmethod">MEDITRON</span>'s benchmark performance, it remains an LLM with the potential to generate harmful content.
+        In medicine, this poses a significant risk, and we recommend against deploying <span class="dmethod">MEDITRON</span>
+        in real-world settings without use-case alignment and randomized controlled trials.
+      </p>
+    </div>
+
+    <div class="content has-text-justified">
+      <p>
+        However, we believe AI safety measures are stronger when models are continuously stress-tested in diverse use cases by different groups.
+        Open, transparent models make this possible. Development behind closed doors only hides model shortcomings from the public.
+        While we don’t view <span class="dmethod">MEDITRON</span> as ready for real-world use,
+        we release it to the community to promote work on the safety of medical LLMs.
+        <span class="dmethod">MEDITRON</span> is the largest open-source model adapted to the medical domain, trained on a large and diverse medical corpus.
+        We hope these resources will enable the research community to more comprehensively study LLMs for the medical domain.
+        We encourage the community to contribute to a better <span class="dmethod">MEDITRON</span> since safety cannot be developed only in-house.
+      </p>
+    </div>
+
   </div>
 </section>
 
